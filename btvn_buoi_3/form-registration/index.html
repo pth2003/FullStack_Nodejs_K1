@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <form action="" method="get">
+      <div class="form-row">
+        <label for="username">Username</label>
+        <input type="text" name="username" />
+      </div>
+      <div class="form-row">
+        <label for="pass">Password</label>
+        <input type="text" name="pass" />
+      </div>
+      <div class="form-row">
+        <label for="city"
+          >City of <br />
+          Employment</label
+        >
+        <input type="text" name="city" />
+      </div>
+      <div class="form-row">
+        <label for="web">Web sever</label>
+        <select name="web">
+          <option value="0" hidden>--Choose a server--</option>
+          <option value="1">Viettel</option>
+          <option value="2">Vinaphone</option>
+          <option value="3">Mobifone</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label name="role"
+          >Please speacify <br />
+          your role :</label
+        >
+        <div class="form-col">
+          <label> <input type="radio" name="role" value="0" /> Admin</label>
+          <label> <input type="radio" name="role" value="1" /> Engineer</label>
+          <label><input type="radio" name="role" value="2" /> Manager</label>
+          <label> <input type="radio" name="role" value="3" /> Guest </label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="sign"
+          >Single Sign-on <br />
+          the following</label
+        >
+        <div class="form-col">
+          <label> <input type="checkbox" name="sign" value="0" />Mail</label>
+          <label><input type="checkbox" name="sign" value="1" />Payroll</label>
+          <label
+            ><input type="checkbox" name="sign" value="2" />Self-service</label
+          >
+        </div>
+      </div>
+      <div class="form-row center">
+        <button type="submit">Login</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>

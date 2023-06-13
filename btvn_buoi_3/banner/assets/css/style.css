@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 16px;
+}
+.wrap-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrap-content .title {
+  font-weight: 500;
+  margin-top: 16px;
+}
+.wrap-content .attention {
+  font-weight: 700;
+  color: #09aade;
+}
+.wrap-content p {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #ccc;
+}
+.wrap-content .btn-view {
+  margin-top: 16px;
+}
+.btn-view button {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 28px;
+  padding-right: 28px;
+  border: none;
+  background-color: #2c3033;
+  color: #fff;
+  border-radius: 3px;
+}
+.btn-view .view {
+  margin-right: 8px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Form -->
+    <!-- Form để gửi dữ liệu lên server 
+        method: post dùng cho form cần sự bảo mật
+         submit form nào thì gửi lên ở form đó
+         action để trống thì nó sẽ xử ký trong trang hiện tại
+          -->
+
+    <!-- <h1>Login Form</h1>
+    <form action="" method="get">
+      <div><input type="text" name="username" placeholder="Username" /></div>
+      <div><input type="password" name="pass" placeholder="Password" /></div>
+      <button type="submit">Login</button>
+    </form>
+    <form action="search.html" method="get">
+      <input type="search" name="query" placeholder="Từ khóa" />
+      <button type="submit">Tìm kiếm</button>
+    </form> -->
+
+    <!-- Các trường trong thẻ form-->
+    <!-- input type hay dùng :  thường bọc trong 1 thẻ div  -->
+    <form action="">
+      <div>
+        <label for="fullname">Họ Tên : </label>
+        <input
+          type="text"
+          placeholder="Nhập họ tên..."
+          name="fullname"
+          id="fullname"
+        />
+      </div>
+      <div>
+        <label for="email">Email : </label>
+        <input
+          type="email"
+          placeholder="Nhập email..."
+          name="email"
+          id="email"
+        />
+        <!-- type = "number"  có step qui định bước nhảy -->
+        <div>
+          <label for="age">Tuổi : </label>
+          <input type="number" placeholder="Nhập tuổi..." name="age" id="age" />
+        </div>
+        <!-- type = "file" chọn file từ máy tính -->
+        <!-- <div>
+          <input type="file" />
+        </div> -->
+        <!-- radio cần gom chung 1 nhóm bằng thuộc tính name đặt chung 1 tên  -->
+        <div>
+          <label>Giới tính : </label>
+          <label>
+            <input type="radio" name="gender" value="0" />Không xác định
+          </label>
+          <label> <input type="radio" name="gender" value="1" />Nam </label>
+          <label> <input type="radio" name="gender" value="2" />Nữ </label>
+        </div>
+        <div>
+          <label>Sở thích : </label>
+          <label
+            ><input type="checkbox" name="habbit" value="0" />Đọc sách</label
+          >
+          <label
+            ><input type="checkbox" name="habbit" value="1" />Xem Phim</label
+          >
+          <label><input type="checkbox" name="habbit" value="2" />Ngủ</label>
+        </div>
+        <!-- Text area  -->
+        <div>
+          <label for="message"></label>
+          <textarea
+            name="message"
+            cols="30"
+            rows="10"
+            placeholder="message..."
+          ></textarea>
+        </div>
+        <!-- Thẻ select option  -->
+        <div>
+          <label for="tinh">Tỉnh : </label>
+          <select name="tinh">
+            <option value="0" hidden>Chọn tỉnh/thành phố</option>
+            <option value="1">Hà nội</option>
+            <option value="2">Vĩnh Phúc</option>
+            <option value="3">Hà nam</option>
+            <option value="4">Hà tĩnh</option>
+          </select>
+        </div>
+
+        <!-- sự khác nhau giữa readonly -->
+        <button type="submit">Đăng ký</button>
+      </div>
+    </form>
+  </body>
+</html>

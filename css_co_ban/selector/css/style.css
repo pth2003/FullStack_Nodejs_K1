@@ -1,0 +1,14 @@
+.content > .children > h1 {
+  color: red;
+}
+.element h1 {
+  color: black;
+}
+.menu > li > a {
+  color: red;
+  text-decoration: none;
+}
+/* Selector cùng cấp  */
+h2.page-tittle {
+  color: red;
+}

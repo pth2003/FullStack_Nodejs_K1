@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 32px;
+}
+table {
+  border: 1px solid #b09757;
+  border-spacing: 0;
+}
+table td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 32px;
+  padding-right: 32px;
+  color: #b09757;
+}
+table .selected {
+  background-color: #b09757;
+  color: #fff;
+}
+.content {
+  margin-top: 64px;
+  display: flex;
+}
+.content .left-content {
+  width: 30%;
+  background-color: #f6f6f6;
+}
+.content .left-content h2 {
+  margin-bottom: 16px;
+}
+.content .left-content .address {
+  margin-bottom: 16px;
+}
+.content .left-content a {
+  color: #b09757;
+}
+.content .left-content .address-content {
+  margin-top: 32px;
+  margin-left: 32px;
+}
+.content .right-content {
+  width: 70%;
+}
