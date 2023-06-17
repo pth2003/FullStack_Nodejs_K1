@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
+.wrap-content {
+  background-color: #334455;
+  padding: 24px;
+  border-radius: 5px;
+}
+.wrap-content h2 {
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.wrap-content span {
+  color: #ffa400;
+}
+.wrap-content p {
+  color: #fff;
+  margin-bottom: 12px;
+}
+.wrap-content input {
+  padding: 5px 12px;
+  width: 30%;
+  border-radius: 5px;
+}
+.wrap-content button {
+  padding: 5px 12px;
+  border-radius: 5px;
+  background-color: #f8db35;
+}
+.wrap-content:hover h2 ~ form input::placeholder {
+  color: #ffa400;
+}
+.wrap-content:hover h2 ~ form input {
+  background-color: #ddd;
+}
+.wrap-content:hover h2 ~ form button {
+  background-color: #ffa400;
+  color: #fff;
+}

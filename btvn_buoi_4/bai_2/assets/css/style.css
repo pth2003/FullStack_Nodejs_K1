@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+button {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  background-color: #af322a;
+  color: #fff;
+  border-radius: 3px;
+  font-family: "Alfa Slab One", cursive;
+}
+input {
+  display: block;
+  padding: 12px 24px;
+  width: 100%;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+}
+input::placeholder {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+
+  color: #3c3c3c;
+}
+.wrap-content {
+  padding: 80px;
+  background-color: #ddd;
+}
+.wrap-content .header {
+  text-align: center;
+}
+.wrap-content .header .sub-title {
+  margin-bottom: 16px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 32px;
+  color: #392516;
+}
+.wrap-content .header .title {
+  margin-bottom: 16px;
+  font-family: "Alfa Slab One", cursive;
+  color: #392516;
+  font-size: 64px;
+}
+.wrap-content .content {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.wrap-content .content .left-content {
+  width: 50%;
+  margin-right: 16px;
+}
+.wrap-content .content .right-content {
+  width: 50%;
+}

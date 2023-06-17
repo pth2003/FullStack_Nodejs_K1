@@ -40,6 +40,8 @@ body {
   width: 90%;
   margin-bottom: 8px;
   color: #c0c0c0;
+  font-style: italic;
+  line-height: 24px;
 }
 .item b {
   color: #959595;
