@@ -1,0 +1,146 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+.alert {
+  display: none;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  position: absolute;
+  top: -54px;
+  left: 40px;
+}
+.height {
+  height: 178px !important;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+.container {
+  background-color: antiquewhite;
+  width: 500px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 24px;
+}
+.form-header {
+  margin-bottom: 22px;
+}
+.form-header h2 {
+  font-family: "Lobster", cursive;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+.form-header p {
+  font-size: 12px;
+}
+.form-header p span {
+  color: red;
+}
+.content div {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.content div:hover label:not([class="box"]) {
+  background-color: #000;
+}
+.content div:hover textarea,
+.content div:hover select,
+.content div:hover input {
+  border: 1px solid #000;
+}
+.content label:not([class="box"]) {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  background-color: #ddd;
+}
+.content label i {
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, 50%);
+  font-size: 22px;
+  color: #fff;
+}
+.content select,
+.content textarea,
+.content input:not([type="checkbox"]) {
+  padding: 12px 12px;
+  width: max-content;
+  flex: 1;
+}
+.content input {
+  border: 1px solid #ddd;
+}
+.content input:focus + .alert {
+  display: block;
+}
+.content input::placeholder {
+  color: #ddd;
+}
+.star::after {
+  content: "*";
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -10px;
+  font-size: 24px;
+  color: #ddd;
+}
+select {
+  border: 1px solid #ddd;
+  color: #ddd;
+}
+select option {
+  color: black;
+}
+select option:first-child {
+  color: #ddd;
+}
+textarea {
+  color: #ddd;
+  border: 1px solid #ddd;
+}
+input[type="checkbox"] {
+  display: none;
+}
+.box {
+  display: flex;
+  align-items: center;
+}
+.box .custom {
+  height: 20px;
+  width: 20px;
+  border: 2px solid #ccc;
+  display: inline-block;
+  position: relative;
+  margin-right: 5px;
+}
+[type="checkbox"]:checked + .custom:before {
+  content: "\2714";
+  color: #000;
+  position: absolute;
+  left: 3px;
+  top: -3px;
+}
+.footer-form span {
+  color: #ccc;
+}
+.footer-form {
+  justify-content: space-between;
+}
+.footer-form button {
+  padding: 6px 32px;
+  background-color: #e93e32;
+  border: none;
+  color: #fff;
+}

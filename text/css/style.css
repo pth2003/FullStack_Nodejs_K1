@@ -1,0 +1,48 @@
+/* body {
+  font-size: 16px;
+}
+.content {
+  1pt = 1,3 px
+  font-size: 1.2rem;
+}
+/* Nen su dung don vi tuong doi */
+/* .container {
+  font-size: 1.2em;
+}
+.container .item-1 .inner-item {
+  font-size: 0.7em;
+} */
+/* p {
+  line-height: 1.5; 
+  font-size: 1.5em;
+} */
+@font-face {
+  font-family: Roboto;
+  src: url(../font/Roboto-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Roboto;
+  src: url(../font/Roboto-Bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Roboto;
+  src: url(../font/Roboto-Italic.ttf);
+  font-style: italic;
+}
+body {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 1.5;
+
+  /* font-style: italic; */
+}
+
+.img-container {
+  width: 400px;
+  height: 350px;
+  background-image: url(../product-1.jpg);
+  background-size: cover;
+}

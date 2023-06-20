@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-header">
+        <div class="title">
+          <h2>Hey there</h2>
+          <p>
+            <span>We'd like to hear from you</span>.Send us your message or just
+            say hi with our contact form or directly via phone, we love to chat.
+          </p>
+        </div>
+      </div>
+      <div class="content">
+        <form action="" method="get">
+          <div>
+            <label for="name"><i class="fa-solid fa-user"></i></label>
+            <input type="text" name="name" id="name" placeholder="Your name" />
+            <span class="alert">Enter your name</span>
+            <span class="star"></span>
+          </div>
+          <div>
+            <label for="email"><i class="fa-solid fa-envelope"></i></label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="your@domain.com"
+            />
+            <span class="alert">Enter your email</span>
+            <span class="star"></span>
+          </div>
+          <div>
+            <label for="contact-number"
+              ><i class="fa-solid fa-mobile-screen-button"></i
+            ></label>
+            <input
+              type="text"
+              name="contact-number"
+              id="contact-number"
+              placeholder="+84 00 123"
+            />
+            <span class="alert">Enter your number</span>
+          </div>
+          <div>
+            <label for="subject"><i class="fa-solid fa-book"></i></label>
+            <select name="subject">
+              <option value="0" hidden>Subject</option>
+              <option value="1">Subject 1</option>
+              <option value="2">Subject 2</option>
+              <option value="3">Subject 3</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="height">
+              <i class="fa-regular fa-message"></i
+            ></label>
+            <textarea name="message" cols="30" rows="10">
+Message
+          </textarea
+            >
+          </div>
+
+          <div class="footer-form">
+            <label class="box">
+              <input type="checkbox" />
+              <span class="custom"></span>
+              <span> Send me a copy of this message</span>
+            </label>
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

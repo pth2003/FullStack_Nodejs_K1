@@ -30,10 +30,7 @@
 .pages {
   display: none;
 }
-.pages:checked ~ .menu label span {
-  background-color: #28378d;
-  color: #fff;
-}
+
 .pages:nth-of-type(1):checked ~ .page-1 {
   display: block;
 }
@@ -162,4 +159,13 @@ body {
   margin-top: 10px;
   color: #fff;
   font-size: 14px;
+}
+.pages:checked + span {
+  background-color: #28378d;
+  color: #fff;
+}
+label:nth-of-type(1) ~ .page-1,
+label:nth-of-type(2) ~ .page-2 {
+  /* border: 10px solid red; */
+  display: block;
 }
