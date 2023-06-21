@@ -79,11 +79,23 @@ body {
   width: max-content;
   flex: 1;
 }
+input:focus ~ .star {
+  display: none;
+}
+input:focus ~ .exit {
+  display: block;
+}
 .content input {
   border: 1px solid #ddd;
 }
 .content input:focus + .alert {
   display: block;
+}
+.content input:focus + .exit {
+  display: block !important;
+}
+.content input:focus + .star {
+  display: none;
 }
 .content input::placeholder {
   color: #ddd;
@@ -96,6 +108,18 @@ body {
   font-size: 24px;
   color: #ddd;
 }
+.form-group {
+  position: relative;
+}
+.exit {
+  display: none;
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  color: #ddd;
+  font-size: 12px;
+}
+
 select {
   border: 1px solid #ddd;
   color: #ddd;
