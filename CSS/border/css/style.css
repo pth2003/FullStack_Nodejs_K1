@@ -1,0 +1,56 @@
+/* .content {
+  border: 3px solid red;
+  border-radius: 10px 20px;
+  border-top-left-radius: 20px;
+}
+.box {
+  width: 100px;
+  height: 90px;
+  background-color: antiquewhite;
+  border-radius: 50%;
+}
+.box:hover {
+  border-radius: 0;
+} */
+/* .content {
+  border: 3px solid red;
+  width: 50%;
+  height: 100px;
+  background-color: green;
+}
+.box {
+  width: 50%;
+  height: 100%;
+  background-color: aliceblue;
+} */
+/* .image {
+  width: 500px;
+  height: auto;
+  border: 3px solid red;
+}
+.image img {
+  max-width: 100%;
+} */
+.heart {
+  width: 100px;
+  height: 90px;
+  position: relative;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  width: 50px;
+  height: 80px;
+  left: 50px;
+  top: 0;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
