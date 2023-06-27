@@ -1,0 +1,7 @@
+/* nhan gia tri tu 0-1 */
+.box img:hover {
+  filter: grayscale(54%);
+}
+.box iframe {
+  filter: grayscale(1);
+}

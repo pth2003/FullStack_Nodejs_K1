@@ -12,9 +12,10 @@ html {
   height: 100vh;
   padding: 80px;
   background-image: url(../image/login-bg2.jpg);
-  background-size: contain;
-
+  background-size: cover;
   position: relative;
+  background-repeat: no-repeat;
+  background-position: bottom left;
 }
 .wrap-content {
   max-width: 756px;
