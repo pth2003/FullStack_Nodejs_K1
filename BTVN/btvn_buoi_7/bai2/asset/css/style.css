@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  font-family: "Asap", sans-serif;
+}
+.container {
+  height: 280px;
+  background-image: url(../image/background_img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.image .logo {
+  max-width: 200px;
+  background-color: #fff;
+  padding: 30px 30px 10px 30px;
+  margin-right: 20px;
+}
+.desc {
+  color: #fff;
+  margin-top: 20px;
+}
+.sup-desc {
+  display: flex;
+  margin-top: 20px;
+}
+.sup-desc div {
+  margin-right: 30px;
+}
+.sup-desc span {
+  font-weight: bold;
+  font-size: 24px;
+}
+.image .logo img {
+  width: 100%;
+}
+.wrap-content {
+  bottom: 0;
+  left: 5%;
+  position: absolute;
+  display: flex;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: -30px;
+  right: 20px;
+}
+.nav .item {
+  margin: 0 10px;
+  font-weight: 700;
+}
+.nav .item:nth-child(1) a {
+  color: #e17d78;
+  position: relative;
+}
+.nav .item:nth-child(1) a::after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 5px;
+  background-color: #e17d78;
+  position: absolute;
+  bottom: -9px;
+  left: 2px;
+}
