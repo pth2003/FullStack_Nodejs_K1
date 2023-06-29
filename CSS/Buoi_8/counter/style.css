@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.songs {
+  width: 300px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid #efefef;
+  counter-reset: song;
+  font-size: 20px;
+}
+.songs-item {
+  padding: 10px 0;
+  counter-increment: songs;
+}
+.songs-item::before {
+  content: "#" counter(songs);
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  background-color: green;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  margin-right: 5px;
+}
+.child {
+  padding: 0 30px;
+}
+.songs .child {
+  counter-reset: song-child;
+}
+.songs .child .songs-item {
+  counter-increment: song-child;
+}
+.songs .child .songs-item::before {
+  content: counter(songs) "." counter(song-child);
+}
