@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Roboto", sans-serif;
+}
+.section {
+  padding: 60px 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.service {
+  text-align: center;
+}
+.header {
+  margin-bottom: 24px;
+}
+.header h1 {
+  margin-bottom: 16px;
+  font-size: 40px;
+}
+.header .title-desc {
+  font-size: 12px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.content .item {
+  width: 32%;
+  margin-bottom: 16px;
+}
+img {
+  width: 150px;
+  height: 150px;
+}
+.content .item h3 {
+  margin-bottom: 16px;
+}
+.content .item p {
+  margin-bottom: 16px;
+  color: #33333374;
+}
+.content .item button {
+  padding: 8px 32px;
+  background-color: #28378c;
+  border: none;
+  color: #fff;
+}

@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Manrope", sans-serif;
+}
+ul {
+  list-style: none;
+}
+.section {
+  background-color: #f7f7f9;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.nav {
+  display: flex;
+}
+.menu {
+  list-style: none;
+  display: flex;
+
+  margin-right: 24px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.menu li.item {
+  margin: 0 24px;
+}
+.menu li.item a {
+  position: relative;
+}
+.menu li.item a::after {
+  content: "\f107";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 6px;
+  right: -15px;
+  font-size: 12px;
+}
+.more i {
+  margin-right: 15px;
+}
+.mega-menu {
+  display: flex;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.left-menu {
+  flex: 1;
+  position: relative;
+}
+.left-menu::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #33333322;
+  display: inline-block;
+  rotate: 90deg;
+  position: absolute;
+  top: 150px;
+  right: -115px;
+}
+.left-menu .item {
+  margin-bottom: 32px;
+}
+.list-item,
+.left-menu .item .s-menu {
+  display: flex;
+  margin-top: 12px;
+}
+.left-menu .s-menu .left {
+  flex: 1;
+}
+.left-menu .s-menu .right {
+  flex: 1;
+}
+.list-item .row li,
+.left-menu .s-menu li {
+  margin-bottom: 10px;
+}
+.right-menu {
+  flex: 3;
+}
+.right-menu .title {
+}
+
+.list-item .row {
+  flex: 1;
+}
