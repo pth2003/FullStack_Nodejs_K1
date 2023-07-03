@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.content {
+  border: 1px solid red;
+}
+.content h1 {
+  transition: all linear 0.4s;
+}
+.content h1:hover {
+  padding-left: 100px;
+
+  color: red;
+}

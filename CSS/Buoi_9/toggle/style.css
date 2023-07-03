@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.toggle {
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: grey;
+  margin: 30px auto;
+  border-radius: 99px;
+  position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+}
+.toggle input {
+  display: none;
+}
+.btn {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.2s linear;
+  z-index: 1;
+}
+.toggle input:checked + .btn {
+  left: calc(100% - 30px);
+}
+.bg {
+  background-color: green;
+  border-radius: 99px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 100%;
+  transition: all 0.2s linear;
+}
+.toggle input:checked ~ .bg {
+  right: 0;
+}
