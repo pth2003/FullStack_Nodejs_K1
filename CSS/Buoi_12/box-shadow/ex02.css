@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Độ ưu tiên trong css : 
+    0 : important
+    1 : inline
+    2 : id
+    3 : class
+    4 : tagname 
+   Lưu ý : hạn chế sử dụng important
+    Nên sử dụng một số cách ưu tiên sau để xử lý : 
+    + Theo thứ tự độ ưu tiên 
+    + CSS viết dưới ghi đè ở trên
+    + selector càng chi tiết độ ưu tiên càng cao
+*/

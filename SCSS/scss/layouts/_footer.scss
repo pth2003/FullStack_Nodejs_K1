@@ -1,0 +1,12 @@
+.footer {
+  $property: padding;
+  $selector: ".text";
+  .copyright {
+    #{$property}: 40px 0;
+    #{$selector} {
+      font-style: italic;
+      font-size: $size * 1px;
+      width: $width * 1%;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+//comment scss
+/**/
+//Bien trong scss
+//Nen dat ten theo cu phap camelCase
+//Bien toan cuc
+//import parts
+@import "parts/variables";
+@import "parts/reset";
+html {
+  font-size: 10px;
+}
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+//import layout
+@import "layouts/header";
+@import "layouts/footer";

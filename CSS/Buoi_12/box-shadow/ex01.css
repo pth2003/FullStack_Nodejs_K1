@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.box {
+  width: 300px;
+  margin: 30px auto;
+  background-color: green;
+  color: #fff;
+}
+/* box-shadow - do bong
+Cu phap : 
+box-shadow : offsetX offsetY  blur spread color
+*/
+.text {
+  text-align: center;
+  text-shadow: 1px 1px 5px red;
+}
