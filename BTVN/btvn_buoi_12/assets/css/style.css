@@ -1,0 +1,382 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  font-family: "Rajdhani", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.page-wrap {
+  width: 100%;
+  height: 100%;
+  background: url(../image/landing-background.jpg) no-repeat 0;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 80px;
+}
+.page-wrap .container {
+  height: 100%;
+}
+.page-wrap .container .row {
+  height: 100%;
+}
+.page-wrap .dot {
+  width: 64%;
+  height: 140%;
+  border-radius: 50%;
+  background: url(../image/dot-texture.png) repeat 0 0 #fff;
+  position: absolute;
+  top: -20%;
+  right: -32%;
+}
+
+.page-intro {
+  margin: 0 80px;
+  text-align: center;
+}
+.page-intro .logo {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+.page-intro .logo img {
+  width: 60px;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.page-intro h2 {
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+  margin-top: 24px;
+}
+.page-intro h1 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  color: #fff;
+  font-size: 70px;
+  position: relative;
+  top: -30px;
+  left: -30px;
+}
+.page-intro .desc {
+  position: relative;
+  top: -30px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: center;
+  line-height: 1.3;
+}
+.page-intro .switch {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.page-intro .switch label {
+  color: #fff;
+  width: 180px;
+  height: 40px;
+  border: 1px solid #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.page-intro .switch label:first-of-type {
+  border-radius: 12px 0 0 12px;
+}
+.page-intro .switch label:last-of-type {
+  border-radius: 0 12px 12px 0;
+}
+.page-intro .switch label span {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.page-intro .switch .btn {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.page-intro .switch input:nth-of-type(1):checked ~ label .login {
+  color: #000;
+  background-color: #fff;
+}
+.page-intro .switch input:nth-of-type(2):checked ~ label .register {
+  color: #000;
+  background-color: #fff;
+}
+.page-intro .switch input:nth-of-type(2):checked ~ label .login {
+  color: #fff;
+  background-color: transparent;
+}
+.page-intro .switch .acticve {
+  color: #000;
+  background-color: #fff;
+}
+
+.login-form {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  top: -5%;
+  z-index: 1;
+  padding: 32px 64px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 60px 0 rgba(94, 92, 154, 0.12);
+}
+.login-form::before {
+  content: "";
+  background-image: url(../image/rocket.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -45px;
+  left: -50px;
+}
+.login-form h2 {
+  color: #3e3f5e;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+.login-form .form {
+  margin-top: 40px;
+  width: 120%;
+  position: relative;
+  top: 0;
+  left: -10%;
+}
+.login-form .form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.login-form .form .form-row.space-between .form-item {
+  width: auto;
+}
+.login-form .form .form-item {
+  width: 100%;
+}
+.login-form .form .form-item .btn {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+.login-form .form .form-item .btn-login {
+  background-color: #615dfa;
+  box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
+}
+.login-form .form .form-item .btn-login:hover {
+  background-color: #5753e4;
+}
+.login-form .form .form-input {
+  position: relative;
+}
+.login-form .form .form-input label {
+  color: #adafca;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.login-form .form .form-input input[type=text],
+.login-form .form .form-input input[type=password] {
+  height: 34px;
+  padding: 0 20px;
+  background-color: #fff;
+  border: 1px solid #dedeea;
+  color: #3e3f5e;
+  transition: border-color 0.2s ease-in-out;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  overflow: visible;
+}
+.login-form .form .form-input input[type=text]:focus,
+.login-form .form .form-input input[type=password]:focus {
+  border-color: #615dfa;
+}
+.login-form .form .form-input input[type=text]:valid ~ label, .login-form .form .form-input input[type=text]:focus ~ label,
+.login-form .form .form-input input[type=password]:valid ~ label,
+.login-form .form .form-input input[type=password]:focus ~ label {
+  background-color: #fff;
+  padding: 0 6px;
+  font-size: 8px;
+  top: -5px;
+  left: 12px;
+}
+.login-form .checkbox-wrap {
+  position: relative;
+}
+.login-form .checkbox-wrap input[type=checkbox]:checked + .checkbox-box {
+  background-color: #23d2e2;
+  border-color: #23d2e2;
+}
+.login-form .checkbox-wrap input[type=checkbox]:checked + .checkbox-box i {
+  color: #fff;
+}
+.login-form .checkbox-wrap .checkbox-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #dedeea;
+  border-radius: 5px;
+  background-color: #fff;
+  pointer-events: none;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.login-form .checkbox-wrap .checkbox-box i {
+  font-size: 12px;
+  color: transparent;
+}
+.login-form .checkbox-wrap label {
+  font-size: 10px;
+  font-weight: 700;
+  padding-left: 24px;
+  line-height: 22px;
+  cursor: pointer;
+}
+.login-form .form-link {
+  color: #adafca;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 22px;
+}
+.login-form .form-link:hover {
+  color: #23d2e2;
+}
+.login-form .line-text {
+  font-size: 10px;
+  margin-top: 30px;
+  width: 120%;
+  display: block;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  left: -10%;
+}
+.login-form .line-text::before {
+  left: 0;
+}
+.login-form .line-text::after {
+  right: 0;
+}
+.login-form .line-text::before, .login-form .line-text::after {
+  content: "";
+  width: 45px;
+  height: 1px;
+  background-color: #eaeaf5;
+  position: absolute;
+  top: 7px;
+}
+.login-form .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.login-form .social-links .social-item {
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  line-height: 25px;
+  text-align: center;
+  transition: all 0.1s linear;
+}
+.login-form .social-links .social-item:nth-of-type(1) {
+  background-color: #3763d2;
+}
+.login-form .social-links .social-item:nth-of-type(2) {
+  background-color: #1abcff;
+}
+.login-form .social-links .social-item:nth-of-type(3) {
+  background-color: #7b5dfa;
+}
+.login-form .social-links .social-item:nth-of-type(4) {
+  background-color: #fd434f;
+}
+.login-form .social-links .social-item a {
+  color: #fff;
+  font-size: 10px;
+}
+.login-form .social-links .social-item:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 992px) {
+  .page-wrap .row {
+    gap: 50px;
+  }
+  .page-wrap .page-intro {
+    position: relative;
+  }
+  .page-wrap .page-intro h1 {
+    left: 0;
+  }
+  .page-wrap .page-intro p {
+    display: none;
+  }
+  .page-wrap .page-intro .switch {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .page-wrap .page-intro .switch label {
+    width: 130px;
+  }
+  .dot {
+    display: none;
+  }
+  .login-form {
+    margin: 50px auto;
+    width: 60%;
+    top: -15%;
+    height: 70%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

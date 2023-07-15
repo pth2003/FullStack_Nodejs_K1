@@ -1,0 +1,211 @@
+.login-form {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  top: -5%;
+  z-index: 1;
+  padding: 32px 64px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 60px 0 rgba(94, 92, 154, 0.12);
+  &::before {
+    content: "";
+    background-image: url(../image/rocket.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -45px;
+    left: -50px;
+  }
+  h2 {
+    color: #3e3f5e;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .form {
+    margin-top: 40px;
+    width: 120%;
+    position: relative;
+    top: 0;
+    left: -10%;
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      &.space-between {
+        .form-item {
+          width: auto;
+        }
+      }
+    }
+    .form-item {
+      width: 100%;
+      .btn {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        width: 100%;
+      }
+      .btn-login {
+        background-color: #615dfa;
+        box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
+        &:hover {
+          background-color: #5753e4;
+        }
+      }
+    }
+    .form-input {
+      position: relative;
+      label {
+        color: #adafca;
+        font-size: 12px;
+        font-weight: 500;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        transition: all 0.3s ease-in-out;
+      }
+      input[type="text"],
+      input[type="password"] {
+        height: 34px;
+        padding: 0 20px;
+        background-color: #fff;
+        border: 1px solid #dedeea;
+        color: #3e3f5e;
+        transition: border-color 0.2s ease-in-out;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        overflow: visible;
+        &:focus {
+          border-color: #615dfa;
+        }
+        &:valid ~ label,
+        &:focus ~ label {
+          background-color: #fff;
+          padding: 0 6px;
+          font-size: 8px;
+          top: -5px;
+          left: 12px;
+        }
+      }
+    }
+  }
+  .checkbox-wrap {
+    position: relative;
+    input[type="checkbox"]:checked + .checkbox-box {
+      background-color: #23d2e2;
+      border-color: #23d2e2;
+      i {
+        color: #fff;
+      }
+    }
+    .checkbox-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #dedeea;
+      border-radius: 5px;
+      background-color: #fff;
+      pointer-events: none;
+      position: absolute;
+      top: 3px;
+      left: 0;
+      transition: border-color 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
+      i {
+        font-size: 12px;
+        color: transparent;
+      }
+    }
+    label {
+      font-size: 10px;
+      font-weight: 700;
+      padding-left: 24px;
+      line-height: 22px;
+      cursor: pointer;
+    }
+  }
+  .form-link {
+    color: #adafca;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 22px;
+    &:hover {
+      color: #23d2e2;
+    }
+  }
+  .line-text {
+    font-size: 10px;
+    margin-top: 30px;
+    width: 120%;
+    display: block;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    left: -10%;
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
+    &::before,
+    &::after {
+      content: "";
+      width: 45px;
+      height: 1px;
+      background-color: #eaeaf5;
+      position: absolute;
+      top: 7px;
+    }
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    .social-item {
+      height: 25px;
+      width: 25px;
+      border-radius: 5px;
+      line-height: 25px;
+      text-align: center;
+      transition: all 0.1s linear;
+      &:nth-of-type(1) {
+        background-color: #3763d2;
+      }
+      &:nth-of-type(2) {
+        background-color: #1abcff;
+      }
+      &:nth-of-type(3) {
+        background-color: #7b5dfa;
+      }
+      &:nth-of-type(4) {
+        background-color: #fd434f;
+      }
+      a {
+        color: #fff;
+        font-size: 10px;
+      }
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+  }
+}
