@@ -1,0 +1,37 @@
+// @mixin size($all: null, $width: $all, $height: $all) {
+//   width: $width;
+//   height: $height;
+// }
+// @mixin rounded {
+//   border-radius: 50%;
+// }
+// @mixin flexCenter {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+@mixin gridContainer($column, $spacing) {
+  row-gap: $spacing;
+  margin-left: calc($spacing * -1);
+  > * {
+    width: calc(100% / $column - $spacing);
+    margin-left: $spacing;
+  }
+}
+@mixin screen($break-point) {
+  @if $break-point == moblie {
+    @media (max-width: 575px) {
+      @content;
+    }
+  }
+  @if $break-point == tablet {
+    @media (min-width: 576px) and (max-width: 991px) {
+      @content;
+    }
+  }
+  @if $break-point == pc {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}

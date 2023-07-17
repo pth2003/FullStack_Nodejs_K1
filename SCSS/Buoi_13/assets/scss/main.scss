@@ -1,0 +1,51 @@
+@import "mixins";
+html {
+  font-family: sans-serif;
+}
+// h1 {
+//   color: red;
+//   font-style: italic;
+// }
+// h2 {
+//   font-size: 24px;
+//   @extend h1;
+// }
+// %text-italic {
+//   font-style: italic;
+// }
+// %flexCenter {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .container {
+//   padding: 0;
+//   display: flex;
+//   flex-wrap: wrap;
+//   background-color: #ccc;
+//   @include gridContainer(6, 10px);
+//   .item {
+//     background-color: orange;
+//     font-size: 30px;
+//     font-weight: 600;
+//   }
+// }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include screen(pc) {
+    @include gridContainer(3, 20px);
+  }
+  @include screen(tablet) {
+    @include gridContainer(2, 20px);
+  }
+  @include screen(moblie) {
+    @include gridContainer(1, 20px);
+  }
+
+  > .card {
+    background-color: orange;
+    padding: 30px;
+  }
+}
