@@ -54,13 +54,14 @@
     }
   }
 }
-@media (min-width: 1200px) and (max-width: 1399px) {
+@media (max-width: 1399.9px) {
   .container {
     --container-width: 1200px;
   }
 }
 @media screen and (max-width: 992px) {
   .header {
+    padding: 15px 0;
     .col-lg-9 {
       display: none;
     }
@@ -70,10 +71,15 @@
   }
 }
 .welcome-section {
+  overflow: hidden;
   .row {
     align-items: center;
     justify-content: center;
+    > [class^="col-"] {
+      margin-bottom: 0;
+    }
   }
+
   .inner-welcome {
     h2 {
       font-size: 44px;
@@ -100,6 +106,126 @@
   .right {
     position: relative;
     background-color: #dcffca;
-    right: 0;
+    width: 50vw;
+    border-radius: 20px 0px 0px 20px;
+
+    .img-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      translate: -22%;
+      width: 95%;
+    }
+    p {
+      padding: 180px 0;
+      font-size: 150px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100%; /* 200px */
+      opacity: 0.15000000596046448;
+      rotate: 90deg;
+      translate: 25%;
+      text-align: center;
+    }
+  }
+}
+@media (max-width: 1399.9px) {
+  .welcome-section {
+    .right {
+      .img-container {
+        width: 80%;
+      }
+      p {
+        font-size: 120px;
+      }
+    }
+  }
+}
+@media (max-width: 1199.9px) {
+  .welcome-section {
+    .inner-welcome {
+      h2 {
+        font-size: 3rem;
+      }
+      h1 {
+        font-size: 4.4rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+    .right {
+      .img-container {
+        width: 90%;
+      }
+      p {
+        font-size: 100px;
+        padding: 150px 0;
+      }
+    }
+  }
+}
+@media (max-width: 991.9px) {
+  .welcome-section {
+    .inner-welcome {
+      h2 {
+        font-size: 2.2rem;
+      }
+      h1 {
+        font-size: 3.4rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+    .right {
+      .img-container {
+        width: 80%;
+      }
+      p {
+        font-size: 80px;
+        padding: 100px 0;
+      }
+    }
+  }
+}
+@media (max-width: 767.9px) {
+  .welcome-section {
+    .inner-welcome {
+      h2 {
+        font-size: 2rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      p {
+        width: 100%;
+      }
+    }
+    .right {
+      .img-container {
+        width: 80%;
+      }
+      p {
+        padding: 80px 0;
+      }
+    }
+  }
+}
+@media (max-width: 575.9px) {
+  .welcome-section {
+    .row {
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 15px;
+    }
+    .inner-welcome {
+      p {
+        width: 90%;
+      }
+    }
+    .right {
+      display: none;
+    }
   }
 }
