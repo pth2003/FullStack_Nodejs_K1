@@ -52,6 +52,14 @@ ul {
   display: inline-block;
 }
 
+.m-25 {
+  margin-left: 25%;
+}
+
+.t-30 {
+  margin-top: 30px;
+}
+
 .header {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
 }
@@ -231,9 +239,8 @@ ul {
   }
   .welcome-section .right .img-container {
     width: 80%;
-  }
-  .welcome-section .right p {
-    padding: 80px 0;
+    top: 50%;
+    translate: -20% -50%;
   }
 }
 @media (max-width: 575.9px) {
@@ -242,12 +249,82 @@ ul {
     justify-content: flex-start;
     margin-top: 15px;
   }
+  .welcome-section .col-6:last-child {
+    display: none;
+  }
   .welcome-section .inner-welcome p {
     width: 90%;
   }
-  .welcome-section .right {
-    display: none;
-  }
+}
+.quanlity-section {
+  padding: 120px 0 100px 0;
+}
+.quanlity-section .row {
+  --column-space: 26px;
+}
+.quanlity-section .row > [class^=col-] {
+  margin-bottom: 0;
+}
+.quanlity-section .row .col-lg-3:nth-child(2) .item {
+  height: 471px;
+}
+.quanlity-section .row .col-lg-3:nth-child(2) .icon-img {
+  background-color: #f2ffec;
+}
+.quanlity-section .heading {
+  text-align: center;
+}
+.quanlity-section .heading h2 {
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 131.523%; /* 49.979px */
+}
+.quanlity-section .heading-desc {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24.5px; /* 153.125% */
+}
+.quanlity-section .list-item {
+  justify-content: center;
+  align-items: center;
+  margin-top: 170px;
+}
+.quanlity-section .item {
+  width: 353px;
+  height: 405px;
+  border-radius: 4px;
+  padding: 40px;
+  background: var(--white, #fff);
+  box-shadow: -7px 10px 87px 0px rgba(54, 54, 54, 0.12);
+}
+.quanlity-section .item .icon-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  background-color: #fff0e7;
+  position: relative;
+}
+.quanlity-section .item .icon-img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.quanlity-section .item h3 {
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-top: 28px;
+}
+.quanlity-section .item p {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37px; /* 154.167% */
+  margin-top: 29px;
 }
 
 /*# sourceMappingURL=style.css.map */
