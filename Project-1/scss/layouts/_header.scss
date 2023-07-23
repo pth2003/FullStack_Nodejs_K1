@@ -235,6 +235,31 @@
       margin-bottom: 0;
     }
     --column-space: 26px;
+    .col-lg-3 {
+      position: relative;
+    }
+    .col-lg-3:first-child::before,
+    .col-lg-3:last-child::after {
+      content: "";
+      width: 282px;
+      height: 282px;
+      border-radius: 282px;
+
+      display: block;
+
+      z-index: -1;
+      position: absolute;
+    }
+    .col-lg-3:first-child::before {
+      background-color: #dcffca;
+      top: -141px;
+      left: -136px;
+    }
+    .col-lg-3:last-child::after {
+      background-color: #ffd5bd;
+      bottom: -170px;
+      right: -135px;
+    }
     .col-lg-3:nth-child(2) {
       .item {
         height: 471px;
@@ -297,6 +322,95 @@
       font-weight: 400;
       line-height: 37px; /* 154.167% */
       margin-top: 29px;
+    }
+  }
+}
+
+.product-section {
+  padding: 120px 0 100px 0;
+  .row {
+    > [class^="col-"] {
+      margin-bottom: 250px;
+      margin-left: 1px;
+    }
+    --column-space: 26px;
+    .col-lg-3 {
+      position: relative;
+      text-align: center;
+      &::before {
+        content: "";
+        width: 323.179px;
+        height: 323.179px;
+        display: block;
+        background-color: #ffba94;
+        border-radius: 323.179px;
+        position: absolute;
+        top: -137px;
+        z-index: -1;
+      }
+      &:nth-of-type(2)::before,
+      &:nth-of-type(5)::before {
+        background-color: #c5ffa8;
+      }
+    }
+    --column-space: 50px;
+  }
+  .product-list {
+    justify-content: center;
+    align-items: center;
+    .product-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .product-img {
+        margin-bottom: 20px;
+      }
+      h3 {
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .wrap-line {
+        position: relative;
+        .line {
+          width: 49px;
+          height: 3px;
+          background-color: #a3a3a3;
+          display: block;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+        }
+      }
+      p {
+        margin-top: 8px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+        span {
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 32px;
+        }
+      }
+      .desc {
+      }
+      button {
+        display: block;
+        margin-top: 32px;
+        padding: 16px 14px;
+        border-radius: 8px;
+        background-color: #46b20f;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+        margin-top: auto;
+      }
     }
   }
 }
