@@ -26,3 +26,25 @@
 .b-60 {
   margin-bottom: 60px;
 }
+
+$bearkponits: (
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1400,
+);
+@mixin display($name: "") {
+  $prefix: "d-";
+  @if ($name != "") {
+    $prefix: $prefix + $name + "-";
+  }
+  .#{$prefix}none {
+    display: none;
+  }
+  .#{$prefix}block {
+    display: block;
+  }
+}
+
+@include display();

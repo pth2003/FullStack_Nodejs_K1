@@ -129,105 +129,7 @@
     }
   }
 }
-@media (max-width: 1399.9px) {
-  .welcome-section {
-    .right {
-      .img-container {
-        width: 80%;
-      }
-      p {
-        font-size: 120px;
-      }
-    }
-  }
-}
-@media (max-width: 1199.9px) {
-  .welcome-section {
-    .inner-welcome {
-      h2 {
-        font-size: 3rem;
-      }
-      h1 {
-        font-size: 4.4rem;
-      }
-      p {
-        font-size: 1.3rem;
-      }
-    }
-    .right {
-      .img-container {
-        width: 90%;
-      }
-      p {
-        font-size: 100px;
-        padding: 150px 0;
-      }
-    }
-  }
-}
-@media (max-width: 991.9px) {
-  .welcome-section {
-    .inner-welcome {
-      h2 {
-        font-size: 2.2rem;
-      }
-      h1 {
-        font-size: 3.4rem;
-      }
-      p {
-        font-size: 1.3rem;
-      }
-    }
-    .right {
-      .img-container {
-        width: 80%;
-      }
-      p {
-        font-size: 80px;
-        padding: 100px 0;
-      }
-    }
-  }
-}
-@media (max-width: 767.9px) {
-  .welcome-section {
-    .inner-welcome {
-      h2 {
-        font-size: 2rem;
-      }
-      h1 {
-        font-size: 2.8rem;
-      }
-      p {
-        width: 100%;
-      }
-    }
-    .right {
-      .img-container {
-        width: 80%;
-        top: 50%;
-        translate: -20% -50%;
-      }
-    }
-  }
-}
-@media (max-width: 575.9px) {
-  .welcome-section {
-    .row {
-      align-items: flex-start;
-      justify-content: flex-start;
-      margin-top: 15px;
-    }
-    .col-6:last-child {
-      display: none;
-    }
-    .inner-welcome {
-      p {
-        width: 90%;
-      }
-    }
-  }
-}
+
 .quanlity-section {
   padding: 120px 0 100px 0;
   .row {
@@ -339,11 +241,11 @@
       text-align: center;
       &::before {
         content: "";
-        width: 323.179px;
-        height: 323.179px;
+        width: $beforeWidth;
+        height: $beforeWidth;
         display: block;
         background-color: #ffba94;
-        border-radius: 323.179px;
+        border-radius: $beforeWidth;
         position: absolute;
         top: -137px;
         z-index: -1;
@@ -361,7 +263,7 @@
     .product-item {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 20px;
       .product-img {
         margin-bottom: 20px;
       }
@@ -396,8 +298,7 @@
           line-height: 32px;
         }
       }
-      .desc {
-      }
+
       button {
         display: block;
         margin-top: 32px;
@@ -410,6 +311,128 @@
         line-height: normal;
         color: #fff;
         margin-top: auto;
+      }
+    }
+  }
+}
+@media (max-width: 1399.9px) {
+  .welcome-section {
+    .right {
+      .img-container {
+        width: 80%;
+      }
+      p {
+        font-size: 120px;
+      }
+    }
+  }
+  .product-section {
+    .row {
+      .col-lg-3 {
+        &::before {
+          width: calc(0.8 * $beforeWidth);
+          height: calc(0.8 * $beforeWidth);
+          border-radius: calc(0.8 * $beforeWidth);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199.9px) {
+  .welcome-section {
+    .inner-welcome {
+      h2 {
+        font-size: 3rem;
+      }
+      h1 {
+        font-size: 4.4rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+    .right {
+      .img-container {
+        width: 90%;
+      }
+      p {
+        font-size: 100px;
+        padding: 150px 0;
+      }
+    }
+  }
+  .product-section {
+    .row {
+      .col-lg-3 {
+        &::before {
+          width: calc(0.7 * $beforeWidth);
+          height: calc(0.7 * $beforeWidth);
+          border-radius: calc(0.7 * $beforeWidth);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 991.9px) {
+  .welcome-section {
+    .inner-welcome {
+      h2 {
+        font-size: 2.2rem;
+      }
+      h1 {
+        font-size: 3.4rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+    .right {
+      .img-container {
+        width: 80%;
+      }
+      p {
+        font-size: 80px;
+        padding: 100px 0;
+      }
+    }
+  }
+}
+@media (max-width: 767.9px) {
+  .welcome-section {
+    .inner-welcome {
+      h2 {
+        font-size: 2rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      p {
+        width: 100%;
+      }
+    }
+    .right {
+      .img-container {
+        width: 80%;
+        top: 50%;
+        translate: -20% -50%;
+      }
+    }
+  }
+}
+@media (max-width: 575.9px) {
+  .welcome-section {
+    .row {
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 15px;
+    }
+    .col-6:last-child {
+      display: none;
+    }
+    .inner-welcome {
+      p {
+        width: 90%;
       }
     }
   }
