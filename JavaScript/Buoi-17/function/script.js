@@ -51,4 +51,37 @@
 // console.log(sum(10, 2));
 
 // callback : truyen vao tham so la func
-var getA = function (a) {};
+// var getA = function (a) {};
+
+var getA = function (fn, ...args) {
+  setTimeout(function () {
+    console.log("GetA");
+    if (typeof fn === "function") {
+      fn(...args); // gọi hàm chủ động
+    }
+  }, 1000);
+};
+var getB = function (name, subject) {
+  console.log("getB", name, subject);
+};
+
+getA(getB, "F8", "Fullstack");
+
+// rest parameter :
+// function fn(a,b,...args) {
+//     return args;
+//  }
+
+function sum(...args) {
+  for (var i = 0; i < args.length; i++) {
+    console.log(args[i]);
+  }
+}
+sum(1, 2, 3, 6, 1);
+
+var sum2 = function (name, address, number) {
+  console.log(name, address, number);
+};
+
+var a = ["Phan Trung Hieu", "Vinh Phuc", "123"];
+sum2(...a);
