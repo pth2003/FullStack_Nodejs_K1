@@ -193,5 +193,23 @@ h6 {
     visibility: visible;
   }
 }
+.hero .hero-text h1,
+.hero .hero-text h2 {
+  font-weight: 800;
+}
+.hero .hero-text h1 {
+  font-size: 3.6rem;
+}
+.hero .hero-text h2 {
+  font-size: 4.3rem;
+}
+.hero .hero-text p {
+  max-width: 75%;
+}
+.hero .hero-image {
+  background: #dcffca;
+  width: 48vw;
+  border-radius: 16.667px 0px 0px 16.667px;
+}
 
 /*# sourceMappingURL=style.css.map */
