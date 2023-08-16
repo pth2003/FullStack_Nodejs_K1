@@ -48,11 +48,29 @@ var obj2 = {
 // console.log(user);
 
 // Tham Chiếu
+// var a = {
+//   name: "abc",
+//   email: "abc@gmail.com",
+// };
+// // sao chep obj
+// var b = Object.assign({}, a);
+// b.name = "F8";
+// console.log(a, b);
+
+// Optional chaining (?.)
+
 var a = {
-  name: "abc",
-  email: "abc@gmail.com",
+  name: "Hieu",
+  getName1: function () {
+    return "abc";
+  },
 };
-// sao chep obj
-var b = Object.assign({}, a);
-b.name = "F8";
-console.log(a, b);
+// Voi thuoc tinh
+console.log(a.getName?.()); // optional chaining voi phuong thuc
+
+var users = "F8";
+if (users?.length) {
+  users.forEach?.(function (user) {
+    console.log(user);
+  });
+}
