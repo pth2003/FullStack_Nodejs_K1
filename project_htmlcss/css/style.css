@@ -17,6 +17,7 @@ body {
   color: #2c2c2c;
   line-height: 1.25;
   font-size: 1.6rem;
+  overflow-x: hidden;
 }
 
 a {
@@ -208,8 +209,78 @@ h6 {
 }
 .hero .hero-image {
   background: #dcffca;
-  width: 48vw;
+  width: 50vw;
   border-radius: 16.667px 0px 0px 16.667px;
+  padding: 55px 0;
+  position: relative;
+}
+.hero .hero-image img {
+  width: 432px;
+  margin-top: 50px;
+  margin-left: -80px;
+}
+.hero .hero-image span {
+  font-size: 15.6rem;
+  color: #216000;
+  opacity: 0.15;
+  font-weight: 800;
+  line-height: 100%;
+  rotate: 90deg;
+  position: absolute;
+  left: 35px;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+}
+
+@media screen and (max-width: 1399.98px) {
+  .hero .hero-image img {
+    width: 350px;
+    margin-left: -60px;
+  }
+  .hero .hero-image span {
+    font-size: 10rem;
+    left: -5%;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .hero .hero-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .hero .hero-text p {
+    max-width: 100%;
+  }
+  .hero .hero-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0;
+  }
+  .hero .hero-image img {
+    margin: 0;
+  }
+  .hero .hero-image span {
+    position: static;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .hero .hero-image {
+    display: block;
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .hero .hero-image img {
+    margin: 0 auto;
+    max-width: 70%;
+    display: block;
+  }
+  .hero .hero-image span {
+    rotate: 0deg;
+    font-size: 10rem;
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
