@@ -118,3 +118,19 @@ var flatArray = [
 
 var nestedArr = convertToNestedArray(flatArray);
 console.log(nestedArr);
+
+Array.prototype.reduce2 = function (callback, initialValue) {
+  let accumulator = initialValue !== undefined ? initialValue : this[0];
+
+  for (let i = initialValue !== undefined ? 0 : 1; i < this.length; i++) {
+    accumulator = callback(accumulator, this[i]);
+  }
+
+  return accumulator;
+};
+const numbers = [1, 2, 3, 4, 5];
+const s = numbers.reduce2(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+console.log(s);
