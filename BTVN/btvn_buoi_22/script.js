@@ -14,10 +14,7 @@ var sum = function (...args) {
 
 // console.log(sum(1, "2", 3));
 
-// BAI 2 :
-
-var price = 12000;
-
+// BAI 2 :s
 Number.prototype.getCurrency = function (currency) {
   return this.toLocaleString("vi") + " " + currency;
 };
