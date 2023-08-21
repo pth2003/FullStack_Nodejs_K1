@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.p-relative {
+  position: relative;
+}
+.dang-nhap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  height: 44px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #f8fafc;
+  border: 0;
+  padding: 0;
+  border-radius: 5px;
+  background: #1a7900 none;
+  margin: 100px auto;
+}
+.modal-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #4d4d4d;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.modal-box.active {
+  visibility: visible;
+  opacity: 1;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6) none;
+  z-index: -1;
+}
+.modal {
+  padding: 0 40px 30px;
+  background: #fff none;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  border-radius: 3px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+.modal .modal-header {
+  margin: 0 -40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.modal .modal-header .active {
+  background: #fff none;
+  color: #333;
+}
+
+.btn {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #999;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  background: #eee none;
+}
+.modal .modal-body .desc {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 0;
+  color: #1a1a1a;
+}
+.modal .modal-body .mt-24 {
+  margin-top: 24px;
+}
+.modal .modal-body .social {
+  margin: 16px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: px; */
+}
+.modal .modal-body .social button {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: calc(50% - 10px);
+  border: 0;
+  background: #e2e8f0 none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333;
+  height: 45px;
+  padding: 0;
+}
+.modal .modal-body .social i {
+  margin-right: 10px;
+  font-size: 30px;
+}
+.modal .modal-body .line {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 0;
+  color: #1a1a1a;
+  position: relative;
+  z-index: 0;
+}
+.modal .modal-body span {
+  display: block;
+  padding: 0 20px;
+  background: #fff none;
+}
+.modal .modal-body span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-top: 1px solid #eee;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.control {
+  margin: 16px 0 0;
+}
+.modal .modal-body .login-form label,
+.modal .modal-body .register-form label {
+  color: #1a1a1a;
+  font-weight: 500;
+  margin: 0 0 2px;
+  display: block;
+}
+.modal .modal-body .login-form input,
+.modal .modal-body .register-form input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px 16px 10px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333;
+  outline: 0;
+}
+
+.modal .modal-body .login-form .view,
+.modal .modal-body .register-form .view {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent none;
+  font-size: 18px;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal .modal-body .login-form .password,
+.modal .modal-body .register-form .password {
+  position: relative;
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modal .modal-body .login-form .forgot-pass {
+  font-size: 14px;
+  line-height: 22px;
+  color: gray;
+  font-style: italic;
+  padding: 0;
+  background: transparent none;
+  border: 0;
+  border-radius: 0;
+}
+.modal .modal-body .register-form .btn-register,
+.modal .modal-body .login-form .btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #f8fafc;
+  border: 0;
+  padding: 0;
+  border-radius: 5px;
+  background: #1a7900 none;
+}
+.modal .modal-body .error-message {
+  color: #ef4444;
+  font-style: italic;
+  margin: 8px 0 0;
+}
+.modal .modal-body .error-message.show {
+  display: block;
+}
+.modal .modal-body .error {
+  border: 1px solid #ef4444 !important;
+}
+
+.modal .modal-body .hidden {
+  display: none;
+}
