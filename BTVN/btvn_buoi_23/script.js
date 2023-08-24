@@ -51,8 +51,9 @@ pass.addEventListener("focus", function () {
 
 var btnLogin = document.querySelector(".btn-login");
 
-btnLogin.addEventListener("click", function () {
+btnLogin.addEventListener("click", function (e) {
   if (email.value.trim() === "" || pass.value.trim() === "") {
+    e.preventDefault();
     email.classList.add("error");
     errorEmail.textContent = "Vui lòng nhập thông tin";
     pass.classList.add("error");
