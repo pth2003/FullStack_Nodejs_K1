@@ -65,3 +65,38 @@ navPrev.addEventListener("click", function () {
     updatePagination(currentSlideIndex);
   }
 });
+
+// Vuot chuyen trang
+var isDrag = false;
+var initalOffsetX;
+var rate = (10 * itemWidth) / 100;
+var check = false;
+carouselInner.addEventListener("mousedown", function (e) {
+  isDrag = true;
+  initalOffsetX = e.offsetX;
+});
+carouselInner.addEventListener("mousemove", function (e) {
+  e.preventDefault();
+  if (isDrag) {
+    var currentOffsetX = e.offsetX;
+    var moveWidth = currentOffsetX - initalOffsetX;
+    if (moveWidth < 0) {
+      // next slide
+      if (Math.abs(moveWidth) > rate) {
+        if (!check && Math.position < totalWidth - itemWidth) {
+          carouselInner.style.translate = null;
+          position -= itemWidth;
+          carouselInner.style.translate = `${position}px`;
+          check = true;
+        }
+      } else {
+        carouselInner.style.translate = "none";
+        carouselInner.style.translate = `${position + moveWidth}px`;
+      }
+    }
+  }
+});
+carouselInner.addEventListener("mouseup", function () {
+  isDrag = false;
+  check = false;
+});
