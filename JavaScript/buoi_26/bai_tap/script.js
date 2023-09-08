@@ -29,7 +29,7 @@ var getTime = function (seconds) {
 progressBar.addEventListener("mousedown", function (e) {
   //   Tinh ti le phan tram giua vi tri click voi chieu rong
   if (e.which === 1) {
-    var rate = (e.offsetX * 100) / progressBarWidth;
+    rate = (e.offsetX * 100) / progressBarWidth;
     progress.style.width = `${rate}%`;
     initialRate = rate; // vị trị khi click
     isDrag = true;
@@ -49,6 +49,11 @@ document.addEventListener("mousemove", function (e) {
   if (isDrag) {
     var space = e.clientX - initialClientX;
     rate = (space * 100) / progressBarWidth + initialRate;
+    if (rate < 0) {
+      rate = 0;
+    } else if (rate > 100) {
+      rate = 100;
+    }
     if (rate >= 0 && rate <= 100) {
       progress.style.width = `${rate}%`;
     }
@@ -91,17 +96,18 @@ audio.addEventListener("timeupdate", function () {
     currentTimeElement.innerHTML = getTime(this.currentTime);
 
     // Tinh ty le phan tram
-    var rate = (this.currentTime / this.duration) * 100;
+    rate = (this.currentTime / this.duration) * 100;
     // Update vao timer
     progress.style.width = `${rate}%`;
   }
 });
 
 var timer = progressBar.querySelector(".timer");
+
 progressBar.addEventListener("mousemove", function (e) {
   timer.style.display = "block";
   timer.style.left = `${e.offsetX}px`;
-  var rate = (e.offsetX * 100) / this.clientWidth;
+  rate = (e.offsetX * 100) / this.clientWidth;
   var currentTime = (audio.duration * rate) / 100;
   timer.innerText = getTime(currentTime);
 });
