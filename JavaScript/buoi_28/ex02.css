@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 2000px;
+  /* padding-top: 67px; */
+}
+.header {
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  background: #fff;
+  transition: all 0.2s linear;
+}
+.header.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.header .header-inner {
+  max-width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.header .header-inner ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+.header .header-inner ul li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
+
+main {
+  max-width: 80%;
+  margin: 0 auto;
+}
+section {
+  height: 100vh;
+}
