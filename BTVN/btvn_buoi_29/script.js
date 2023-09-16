@@ -1,132 +1,121 @@
+const modules = ["Nhập môn lập trình web", "Ngôn ngữ HTML", "Ngôn ngữ CSS"];
+const lessons = [
+  {
+    module: [
+      "Giới thiệu Khóa học HTML-CSS",
+      "Nhập môn lập trình web - Phần 1",
+      "Nhập môn lập trình web - Phần 2",
+      "Công cụ - Phần mềm cần chuẩn bị",
+    ],
+  },
+  {
+    module: ["HTML cơ bản - Phần 1", "HTML cơ bản - Phần 2"],
+  },
+  {
+    module: [
+      "Giới thiệu ngôn ngữ CSS - Cách viết CSS",
+      "Cấu trúc CSS - Bộ chọn (Selector) trong CSS - Phần 1",
+      "Bộ chọn CSS (Tiếp theo) - Các thuộc tính định dạng văn bản",
+      "Chồng chéo CSS và thứ tự ưu tiên trong CSS",
+      "Thuộc tính Background",
+      "Thuộc tính Border",
+      "Thuộc tính Width - Height",
+      "Thuộc tính text-align",
+      "Thuộc tính overflow",
+    ],
+  },
+];
+
 const list = document.querySelector(".list");
-const listItems = document.querySelector(".list-item");
-
-let lessionIndex = 0;
-let moduleIndex = 0;
-// Ham tinh toan vvi tri con tro chuot
-const getMouseOffset = function (e) {
-  const targetRect = e.target.getBoundingClientRect(); // tra vef DOMReact
-  const offset = {
-    x: e.pageX - targetRect.left,
-    y: e.pageY - targetRect.top,
-  };
-  return offset;
-};
-const getElementVerticalCenter = function (e) {
-  const rect = e.getBoundingClientRect();
-  return (rect.bottom - rect.top) / 2;
-};
-
-const appendPlacerholder = function (evt, index) {
-  evt.preventDefault();
-  if (index === dragIndex) {
-    return;
-  }
-  const offser = getMouseOffset(evt);
-  const middleY = getElementVerticalCenter(e.target);
-  const placeholder = list.children[dragIndex];
-  if (offset.y > middleY) {
-    list.insertBefore(e.target, placeholder);
-  } else if (list.children[index + 1]) {
-    list.insertBefore(e.target.nextSibling || e.target, placeholder);
-  }
-  return;
+var lessonIndex = 1;
+const createListElement = function () {
+  modules.forEach(function (module, index) {
+    var htmlModules = ` <div class="active list-item" draggable="true">
+    <span class="text-value">Module: ${index + 1}: </span> 
+    <span>${module}</span>
+  </div>`;
+    // 'beforeend': Chèn ở phía bên trong phần tử hiện tại và sau các phần tử con cuối cùng của nó.
+    list.insertAdjacentHTML("beforeend", htmlModules);
+    lessons[index].module.forEach(function (lesson) {
+      var htmlLessons = `<div class="list-item" draggable="true">
+     <span class="text-value">Bài: ${lessonIndex++}:</span>
+    <span>${lesson}</span>
+  </div>`;
+      list.insertAdjacentHTML("beforeend", htmlLessons);
+    });
+  });
 };
 
-function sortable(rootEl, onUpdate) {
-  var dragEl;
+createListElement();
 
-  // Making all siblings movable
-  render(rootEl);
+const listItems = document.querySelectorAll(".list-item");
+let draggedItem = null;
 
-  // Function responsible for sorting
-  function _onDragOver(evt) {
-    evt.preventDefault();
-    evt.dataTransfer.dropEffect = "move";
-
-    var target = evt.target;
-    if (target && target !== dragEl && target.nodeName == "DIV") {
-      // Sorting
-      const offset = getMouseOffset(evt);
-      const middleY = getElementVerticalCenter(evt.target);
-
-      if (offset.y > middleY) {
-        if (target.nextSibling.parentElement === rootEl) {
-          rootEl.insertBefore(dragEl, target.nextSibling);
-          //   rootEl.dataset.index = target.nextSibling.dataset.index;
-        }
-      } else {
-        if (target.parentElement === rootEl) {
-          rootEl.insertBefore(dragEl, target);
-          //   rootEl.dataset.index = target.dataset.index;
-        }
-      }
-    }
-  }
-
-  // End of sorting
-  function _onDragEnd(evt) {
-    evt.preventDefault();
-
-    dragEl.classList.remove("ghost");
-    rootEl.removeEventListener("dragover", _onDragOver, false);
-    rootEl.removeEventListener("dragend", _onDragEnd, false);
-
-    // Notification about the end of sorting
-    onUpdate(dragEl);
-  }
-
-  // Sorting starts
-  rootEl.addEventListener(
-    "dragstart",
-    function (evt) {
-      dragEl = evt.target; // Remembering an element that will be moved
-
-      // Limiting the movement type
-      evt.dataTransfer.effectAllowed = "move";
-      evt.dataTransfer.setData("Text", dragEl.textContent);
-
-      // Subscribing to the events at dnd
-      rootEl.addEventListener("dragover", _onDragOver, false);
-      rootEl.addEventListener("dragend", _onDragEnd, false);
-
-      setTimeout(function () {
-        // If this action is performed without setTimeout, then
-        // the moved object will be of this class.
-        dragEl.classList.add("ghost");
-      }, 0);
-    },
-    false
-  );
+for (const item of listItems) {
+  item.addEventListener("dragstart", dragStart);
+  item.addEventListener("dragend", dragEnd);
+  item.addEventListener("dragover", dragOver);
+  item.addEventListener("dragenter", dragEnter);
+  item.addEventListener("dragleave", dragLeave);
+  item.addEventListener("drop", drop);
 }
 
-function render(rootEl) {
-  [].slice.call(rootEl.children).forEach(function (itemEl, index) {
-    itemEl.draggable = true;
-    let type = "Bài";
+function dragStart(e) {
+  draggedItem = this;
+  setTimeout(() => {
+    this.style.display = "none";
+  }, 0);
+}
 
-    if (itemEl.classList.contains("active")) {
-      type = "Module";
-      moduleIndex++;
+function dragEnd() {
+  setTimeout(() => {
+    draggedItem.style.display = "block";
+    draggedItem = null;
+    updateLessonNumbers();
+  }, 0);
+}
+
+function dragOver(e) {
+  e.preventDefault();
+}
+
+function dragEnter(e) {
+  e.preventDefault();
+  this.style.border = "2px dashed #ccc";
+  console.log("drag enter");
+}
+
+function dragLeave() {
+  this.style.border = "1px solid white";
+}
+
+function drop() {
+  this.style.border = "1px solid white";
+  if (draggedItem !== this) {
+    const items = Array.from(listItems);
+    const sourceIndex = items.indexOf(draggedItem);
+    const targetIndex = items.indexOf(this);
+
+    if (sourceIndex < targetIndex) {
+      this.parentNode.insertBefore(draggedItem, this.nextSibling);
     } else {
-      lessionIndex++;
+      this.parentNode.insertBefore(draggedItem, this);
     }
-    if (!itemEl.children.length) {
-      itemEl.innerHTML = `${type}: ${
-        type === "Module" ? moduleIndex : lessionIndex
-      }: <span>${itemEl.innerText}</span>`;
-    } else {
-      itemEl.innerHTML = `${type}: ${
-        type === "Module" ? moduleIndex : lessionIndex
-      }: <span>${itemEl.children[0].innerText}</span>`;
-    }
+  }
+}
+
+function updateLessonNumbers() {
+  const allSpanLessonValues = document.querySelectorAll(
+    ".list-item:not(.active) span.text-value"
+  );
+  console.log(allSpanLessonValues);
+  const allSpanTopicValues = document.querySelectorAll(
+    ".list-item.active span.text-value"
+  );
+  allSpanLessonValues.forEach((spanLesson, index) => {
+    spanLesson.innerHTML = `Bài ${++index}:`;
+  });
+  allSpanTopicValues.forEach((spanTopic, index) => {
+    spanTopic.innerHTML = `Module ${++index}:`;
   });
 }
-
-// Using
-sortable(list, function (item) {
-  lessionIndex = 0;
-  moduleIndex = 0;
-
-  render(list);
-});
