@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+.play-btn {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.player {
+  max-width: 90%;
+  margin: 30px auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.progress-bar {
+  width: 90%;
+  height: 10px;
+  background-color: gray;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: red;
+}
+
+.progress-bar .progress span {
+  width: 15px;
+  height: 15px;
+  display: block;
+  background-color: blueviolet;
+  position: absolute;
+  right: 0;
+  top: -1.5px;
+  border-radius: 50%;
+  translate: 50%;
+  cursor: pointer;
+}
+.progress-bar .timer {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  translate: -50% 0px;
+  background: #000;
+  color: #fff;
+  font-size: 0.5rem;
+  display: none;
+  margin-bottom: 15px;
+}
+.karaoke .btn {
+  padding: 5px 15px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  background-color: purple;
+  margin: 30px auto;
+  display: block;
+  cursor: pointer;
+}
+.karaoke .karaoke-inner {
+  position: fixed;
+  inset: 0;
+  top: 100%;
+  z-index: 100;
+  background-color: blueviolet;
+  color: #fff;
+  transition: top 0.4s ease;
+}
+.karaoke .karaoke-inner.show {
+  top: 0;
+}
+.karaoke .karaoke-container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.karaoke-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: center;
+}
+.close {
+  cursor: pointer;
+}
+.karaoke-content {
+  font-size: 3vw;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  flex-direction: column;
+  gap: 10px;
+}
+.karaoke-content .word {
+  position: relative;
+  margin: 0 5px;
+}
+.karaoke-content .word span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  overflow: hidden;
+  display: inline-block;
+  color: yellow;
+}
+.karaoke-content div p {
+  margin-bottom: 20px;
+}
