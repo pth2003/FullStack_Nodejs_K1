@@ -1,0 +1,31 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+.control-btn-container {
+  display: flex;
+}
+.main-controls {
+  display: flex;
+}
+.control-btn {
+  margin-left: 8px;
+  width: 50px;
+  height: 100%;
+}
+#filename-input {
+  margin-left: 10px;
+}
+
+#content {
+  padding: 20px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  outline: none;
+  min-height: 300px;
+  margin: 30px 0;
+}
+.control-count {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
