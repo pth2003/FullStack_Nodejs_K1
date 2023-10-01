@@ -51,26 +51,26 @@
 // - fulfilled (resolve)
 // - reject
 
-const getUsers = () => {
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const data = [
-        {
-          name: "hieu",
-          email: "abc@gmail.com",
-        },
-      ];
+// const getUsers = () => {
+//   const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const data = [
+//         {
+//           name: "hieu",
+//           email: "abc@gmail.com",
+//         },
+//       ];
 
-      resolve(data);
-      reject("Lỗi kết nối");
-    }, 1000);
-  });
-  return promise;
-};
+//       resolve(data);
+//       reject("Lỗi kết nối");
+//     }, 1000);
+//   });
+//   return promise;
+// };
 
-const showMessage = () => {
-  console.log("Lay du lieu thanh cong");
-};
+// const showMessage = () => {
+//   console.log("Lay du lieu thanh cong");
+// };
 //  then để gọi resolve
 // catch để gọi reject
 // getUsers()
@@ -85,29 +85,29 @@ const showMessage = () => {
 
 // promise chaining :
 
-const getA = function () {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("GetA");
-    }, 1000);
-  });
-};
+// const getA = function () {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("GetA");
+//     }, 1000);
+//   });
+// };
 
-const getB = function () {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("GetB");
-    }, 2000);
-  });
-};
+// const getB = function () {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("GetB");
+//     }, 2000);
+//   });
+// };
 
-const getC = function () {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("GetC");
-    }, 1500);
-  });
-};
+// const getC = function () {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("GetC");
+//     }, 1500);
+//   });
+// };
 // Khong duoc viet nhu duoi
 // getA().then((data) => {
 //   console.log(data);
@@ -116,18 +116,68 @@ const getC = function () {
 //   });
 // });
 
-getA()
-  .then((data) => {
-    console.log(data);
-    return getB();
-  })
-  .then((data) => {
-    console.log(data);
-    return getC();
-  })
-  .then((data) => {
-    console.log(data);
-  })
-  .finally(() => {
-    console.log("Da tai xong");
+// getA()
+//   .then((data) => {
+//     console.log(data);
+//     return getB();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//     return getC();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .finally(() => {
+//     console.log("Da tai xong");
+//   });
+
+// Buổi 34 :
+
+const lists = [1, 2, 3];
+const getUser = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      users = [
+        { id: 1, name: "User 1", salary: 1000 },
+        { id: 2, name: "User 2", salary: 2000 },
+        { id: 3, name: "User 3", salary: 3000 },
+      ];
+      const user = users.find(({ id: _id }) => {
+        return _id === id;
+      });
+      resolve(user);
+    }, 1000);
   });
+};
+// let total = 0;
+// lists.forEach((id) => {
+//   getUser(id).then((data) => {
+//     // console.log(data);
+//     total += data.salary;
+
+//     if (id === lists.length) {
+//       console.log(total);
+//     }
+//   });
+// });
+
+// let total = 0;
+// const getSalary = async () => {
+//   for (let id of lists) {
+//     const user = await getUser(id);
+//     console.log(user);
+//     total += user.salary;
+//   }
+
+//   console.log(total);
+// };
+// getSalary();
+
+const requests = lists.map(async (id) => await getUser(id));
+// console.log(requests);
+
+Promise.all(requests).then((user) => {
+  const total = user.reduce((prev, current) => prev + current.salary, 0);
+  console.log(total);
+});
