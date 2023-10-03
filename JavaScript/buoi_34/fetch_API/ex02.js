@@ -32,7 +32,9 @@ const getUser = async () => {
 
   const users = await reponse.json();
   //   Trả về reponse message body
-  console.log(users);
+  document.body.innerHTML = users
+    .map(({ name, email }) => `<h2>${name}</h2><h3>${email}</h3><hr/>`)
+    .join("");
 };
 getUser();
 
