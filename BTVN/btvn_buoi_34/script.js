@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  const dbUrl = "http://localhost:3000/todo";
+  const dbUrl = "https://cqyygs-8080.csb.app/todo";
   let form = document.querySelector("form.todo");
   let list = document.querySelector("ul");
 
