@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  font-family: "Lexend Deca", sans-serif;
+  color: #fff;
+  background-color: #272727;
+}
+#root {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+div {
+  margin: 15px 0;
+}
+h2,
+p {
+  margin-bottom: 20px;
+}
