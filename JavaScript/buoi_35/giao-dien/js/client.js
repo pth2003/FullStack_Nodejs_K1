@@ -1,6 +1,6 @@
 // nhiem vu : dinh nghia cac phuong thuc call api
 import { config } from "./config.js";
-const { SERVER_API } = config;
+const { SERVER_API, PAGE_LIMIT } = config;
 export const client = {
   serverApi: SERVER_API,
   setUrl: function (url) {
