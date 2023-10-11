@@ -1,36 +1,3 @@
-// const root = document.querySelector("#root");
-// console.log(root);
-// const api = "http://localhost:3000/questions";
-
-// const render = (questions) => {
-//   const container = document.createElement("div");
-//   container.classList.add("container");
-//   questions.forEach(({ question_id, question_text, options }) => {
-//     console.log(question_text, options);
-//     const div = document.createElement("div");
-//     div.classList.add("question");
-//     div.innerHTML = `
-//     <h2>${question_text}</h2>
-//           <ul class="options">
-//             <li><a href="#">${options[0].option_text}</a>
-//            </li>
-//             <li><a href="#">${options[1].option_text}</a></li>
-//             <li><a href="#">${options[2].option_text}</a></li>
-//             <li><a href="#">${options[3].option_text}</a></li>
-//           </ul>
-//     `;
-//     container.append(div);
-//     root.append(container);
-//   });
-// };
-
-// const getData = async () => {
-//   const res = await fetch(api);
-//   const data = await res.json();
-//   console.log(data);
-//   render(data);
-// };
-// getData();
 const api =
   "https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple";
 const question = document.querySelector("#question");
@@ -148,4 +115,13 @@ const restartGame = () => {
   checkBtn.disabled = false;
   setCount();
   getData();
+};
+
+const nextQuestion = () => {
+  askedCount++;
+  if (askedCount < totalQuestion) {
+    getData();
+  } else {
+    checkCount();
+  }
 };
