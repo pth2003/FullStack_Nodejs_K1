@@ -7,7 +7,14 @@ const _totalQuestion = document.querySelector("#total-question");
 const result = document.querySelector("#result");
 const checkBtn = document.querySelector("#check-answer");
 const playAgain = document.querySelector("#play-again");
-
+const startGame = document.querySelector(".start");
+const root = document.querySelector(".root");
+startGame.addEventListener("click", () => {
+  startGame.style.display = "none";
+  setTimeout(() => {
+    root.style.display = "block";
+  }, 2000);
+});
 let correctAnswer = "",
   askedCount = 0,
   totalQuestion = 10;
