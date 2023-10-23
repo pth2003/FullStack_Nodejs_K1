@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background: #ccc;
+  height: 100vh;
+  padding: 20px;
+}
+a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+nav {
+  margin-bottom: 20px;
+}
+.post-item {
+  margin-bottom: 20px;
+}
+.user-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e81b0;
+}
+.post-item .title-post {
+  margin: 20px 0 10px;
+  font-weight: 600;
+  color: red;
+}
+.post-item .content-post {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+form {
+  padding: 20px;
+  background-color: #ddd;
+}
+.login-section {
+  position: relative;
+}
+.login-section .exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+}
