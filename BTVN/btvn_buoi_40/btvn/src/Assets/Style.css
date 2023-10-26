@@ -1,0 +1,25 @@
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+}
+
+Header {
+  color: red;
+  font-size: 3.5rem;
+}
+
+Footer {
+  color: green;
+  font-size: 3.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+  margin-top: 18px;
+}

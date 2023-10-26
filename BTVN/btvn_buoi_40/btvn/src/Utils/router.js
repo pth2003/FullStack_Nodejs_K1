@@ -1,13 +1,41 @@
 import Navigo from "navigo";
-import { app } from "../../main";
-const router = new Navigo("/", { linksSelector: "a", hash: true });
+import { Error } from "../Pages/Error";
+const app = document.querySelector("#app");
+const routerObj = new Navigo("/", { linksSelector: "a", hash: false });
 
-export const render = (content, target) => {
-  target.innerHTML = content();
+const render = (content, target) => {
+  target.innerHTML = content;
 };
 
-export const routers = (list, layout) => {
-  list.forEach((item) => {
-    router.on(item.path, () => render(list.component, app));
-  });
+window.navigate = (path) => {
+  routerObj.navigate(path);
 };
+function renderHtml(defaultLayout, componentPath, params) {
+  var html = defaultLayout();
+  if (html) {
+    html = html.replace(/\{.*\}/g, componentPath(params));
+  } else {
+    html = componentPath(params);
+  }
+
+  return html;
+}
+
+const router = (arrayPath, defaultLayout) => {
+  if (Array.isArray(arrayPath)) {
+    arrayPath.forEach((pathItem) => {
+      routerObj.on(pathItem.path, (params) =>
+        render(renderHtml(defaultLayout, pathItem.component, params), app)
+      );
+    });
+    routerObj.notFound(() => render(Error(), app));
+    routerObj.resolve();
+  }
+};
+
+export { router, routerObj };
+// export const routers = (list, layout) => {
+//   list.forEach((item) => {
+//     router.on(item.path, () => render(list.component, app));
+//   });
+// };

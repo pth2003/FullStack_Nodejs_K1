@@ -1,11 +1,5 @@
-import Header from "./Components/Header";
-function App() {
-  return (
-    <>
-      <Header />
-      <h1>Hello F8</h1>
-    </>
-  );
+import React from "react";
+import Counter from "./Components/Counter";
+export default function App() {
+  return <Counter />;
 }
-
-export default App;

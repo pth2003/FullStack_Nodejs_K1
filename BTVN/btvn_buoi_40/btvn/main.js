@@ -1,6 +1,3 @@
-export const app = document.querySelector("#app");
-import { HomePage } from "./src/Pages/Home";
-import { DefaultLayout } from "./src/Layouts/Default";
-import { render } from "./src/Utils/router";
+import { App } from "./src/App";
 
-render(DefaultLayout, app);
+App();
