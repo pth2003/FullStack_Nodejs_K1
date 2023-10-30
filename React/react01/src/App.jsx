@@ -1,5 +1,7 @@
 import React from "react";
-import Counter from "./Components/Counter";
+import Products from "./Components/Products";
+import Category from "./Components/Category";
+
 export default function App() {
-  return <Counter />;
+  return <Category />;
 }
