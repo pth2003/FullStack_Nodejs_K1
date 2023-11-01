@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { ComponentA } from "./ComponentA";
+import { ComponentB } from "./ComponentB";
 
-export default function App() {
-  const [count, setCount] = useState(0);
-  const [todoList, setTodoList] = useState([]);
-
-  const handleClick = () => {
-    setCount(count + 1);
+export const AppContext = React.createContext();
+const App = () => {
+  const [title, setTitle] = useState("");
+  const data = {
+    name: "trung Hieu",
+    email: "abc@gmail.com",
+    title,
   };
-
-  //   const getto
-  //   useEffect(() => {
-  //     console.log("f8");
-  //     return
-  //   }, []);
-  //   useEffect(() => {
-  //     console.log("Update..");
-  //   });
-  //   useEffect(() => {
-  //     console.log("count...");
-  //   }, [count]);
-
+  const handleUpdateTitle = (value) => {
+    setTitle(value);
+  };
   return (
-    <div>
-      <h1>Count : {count} </h1>
-      <button onClick={handleClick}>+</button>
-    </div>
+    <AppContext.Provider value={{ data, handleUpdateTitle }}>
+      <ComponentA />
+      <ComponentB></ComponentB>
+    </AppContext.Provider>
   );
-}
+};
+
+export default App;
