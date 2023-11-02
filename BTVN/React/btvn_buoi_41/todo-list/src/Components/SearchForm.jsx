@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-export const EditTodoForm = ({ editTodo }) => {
+export const SearchForm = ({ searchTodo }) => {
   const [value, setValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    editTodo(value);
+    searchTodo(value);
     setValue("");
   };
   return (
@@ -13,13 +13,13 @@ export const EditTodoForm = ({ editTodo }) => {
         type="text"
         value={value}
         className="todo-input"
-        placeholder="Update task right now!!"
+        placeholder="Search task"
         onChange={(e) => {
           setValue(e.target.value);
         }}
       />
       <button type="submit" className="todo-btn">
-        Update Task
+        Seach
       </button>
     </form>
   );
