@@ -16,8 +16,6 @@ export const Confirm_Email = () => {
     if (localStorage.getItem("apiKey")) {
       setConfirm(true);
     }
-
-    // getProfile();
   }, []);
   const handlechange = (e) => {
     setEmail(e.target.value);

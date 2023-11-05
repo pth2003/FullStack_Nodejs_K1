@@ -39,7 +39,10 @@ export const ProductWrapper = () => {
   const handleUpdateCart = (value) => {
     setCart(value);
   };
-
+  const handleUpdateOrders = (value) => {
+    setOrders(value);
+    console.log(value);
+  };
   const handleCartOder = async (cart) => {
     if (cart.length !== 0) {
       const { data } = await client.post("/orders", cart, apiKey);
@@ -62,7 +65,13 @@ export const ProductWrapper = () => {
       </header>
       <div className="container mt-4">
         <ProductContext.Provider
-          value={{ productList, handleUpdateCart, cart, orders }}
+          value={{
+            productList,
+            handleUpdateCart,
+            cart,
+            orders,
+            handleUpdateOrders,
+          }}
         >
           {isLoading ? <Loading /> : <ProductList />}
           <Order />

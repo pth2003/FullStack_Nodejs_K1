@@ -3,13 +3,18 @@ import { ProductContext } from "./ProductWrapper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const Order = () => {
-  const { productList, orders } = useContext(ProductContext);
+  const { productList, orders, handleUpdateOrders } =
+    useContext(ProductContext);
   const [localOrders, setLocalOrders] = useState(orders);
   useEffect(() => {
     setLocalOrders(orders);
   }, [orders]);
+  // useEffect(() => {
+  //   handleUpdateOrders(localOrders);
+  // }, [localOrders]);
   const handlePayment = () => {
     orders.splice(0, orders.length);
+    handleUpdateOrders(orders);
     toast.success("Thanh toán thành công!!!");
     setLocalOrders([]);
   };
