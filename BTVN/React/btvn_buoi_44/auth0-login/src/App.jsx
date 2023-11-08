@@ -6,8 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
-    useAuth0();
+  const { isLoading, isAuthenticated, error, user } = useAuth0();
 
   if (isLoading) {
     return <div>Loading...</div>;
