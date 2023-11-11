@@ -1,0 +1,40 @@
+/* Light Mode Styles */
+/* .app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.content-container {
+  flex: 1;
+} */
+/* html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+} */
+/* body {
+  background-color: red;
+} */
+#root {
+  height: 100vh;
+}
+.app {
+  height: 100%;
+}
+.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
