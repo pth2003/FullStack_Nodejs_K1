@@ -15,6 +15,9 @@ const NumberWrapper = () => {
   );
   const [isCorrect, setCorrect] = useState(true);
   const [table, setTable] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    JSON.parse(localStorage.getItem("isDark"))
+  );
   const maxAttempts = MAX_TIME;
 
   function randomNumber() {
@@ -51,6 +54,7 @@ const NumberWrapper = () => {
   const handleDelete = () => {
     setTable(false);
     localStorage.removeItem("roundHistory");
+    setRoundHistory([]);
   };
 
   // useEffect(() => {
@@ -66,8 +70,17 @@ const NumberWrapper = () => {
   // useEffect(() => {
   //   console.log(roundHistory);
   // }, [roundHistory]);
+  useEffect(() => {
+    localStorage.setItem("isDark", isDarkMode);
+  }, [isDarkMode]);
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
   return (
     <div className={`container mt-5 `}>
+      <button onClick={toggleDarkMode}>
+        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      </button>
       <NumberContext.Provider value={{ handleCheckNumber, handleGuess }}>
         <h1>{mess}</h1>
         <h2>
@@ -75,13 +88,14 @@ const NumberWrapper = () => {
         </h2>
         <h2>Bạn cần tìm kiếm một số từ 1 đến {RANGE_NUMBER - 1}</h2>
 
-        {attempts !== 0 || isCorrect ? (
+        {attempts !== 0 && isCorrect ? (
           <InputNumber />
         ) : (
           <button
             className="btn btn-primary"
             onClick={() => {
               setAttempts(maxAttempts);
+              setCorrect(true);
               setMess("Chào mừng bạn đến với trò chơi đoán số!");
               handleNewRound();
             }}
