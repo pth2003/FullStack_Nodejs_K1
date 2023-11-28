@@ -6,7 +6,7 @@ import {
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
 // SortableContext yêu cầu 1 arr nên map 1 mảng obj là không nên
-function ListColumns({ columns, tasks }) {
+function ListColumns({ columns }) {
   return (
     <SortableContext
       items={columns?.map((c) => c._id)}
@@ -22,7 +22,7 @@ function ListColumns({ columns, tasks }) {
         }}
       >
         {columns?.map((column) => (
-          <Column key={column._id} column={column} tasks={tasks} />
+          <Column key={column._id} column={column} />
         ))}
 
         <Box

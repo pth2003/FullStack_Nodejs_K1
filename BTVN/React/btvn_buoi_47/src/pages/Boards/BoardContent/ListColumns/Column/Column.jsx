@@ -8,11 +8,11 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 const COL_HEADER = "50px";
 const COL_FOOTER = "56px";
-function Column({ column, tasks }) {
+function Column({ column }) {
   // const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, "_id");
-  if (!tasks) return;
+  // if (!tasks) return;
 
-  const tasksByCol = tasks.filter((task) => task.column === column.column);
+  // const tasksByCol = tasks.filter((task) => task.column === column.column);
 
   const {
     attributes,
@@ -29,6 +29,8 @@ function Column({ column, tasks }) {
     height: "100%",
     opacity: isDragging ? 0.75 : undefined,
   };
+
+  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, "_id");
 
   return (
     <div ref={setNodeRef} style={dndKitColumnStyles} {...attributes}>
@@ -54,11 +56,11 @@ function Column({ column, tasks }) {
             justifyContent: "space-between",
           }}
         >
-          <Typography variant="h6">{column?.columnName}</Typography>
+          <Typography variant="h6">{column?.title}</Typography>
           <DeleteOutlineIcon />
         </Box>
         {/* col list card */}
-        <ListCards tasks={tasksByCol} />
+        <ListCards cards={orderedCards} />
         {/* col footer */}
         <Box
           sx={{

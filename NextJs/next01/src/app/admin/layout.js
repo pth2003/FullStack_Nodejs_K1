@@ -7,6 +7,7 @@ const AdminLayout = ({ children }) => {
       <header>
         <h1>admin header</h1>
       </header>
+
       <main>{children}</main>
 
       <footer>

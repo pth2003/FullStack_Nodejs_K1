@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "name": "Trung Hiếu",
+      "id": 1
+    },
+    {
+      "name": "Study Frontend",
+      "id": 2
+    }
+  ]
+}

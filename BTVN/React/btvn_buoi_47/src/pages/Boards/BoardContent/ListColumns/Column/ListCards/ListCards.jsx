@@ -6,14 +6,15 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-function ListCards({ tasks }) {
+function ListCards({ cards }) {
   // if (!tasks) {
   //   return null; // or return an appropriate component or message
   // }
   // console.log(tasks);
+
   return (
     <SortableContext
-      items={tasks?.map((t) => t._id)}
+      items={cards?.map((t) => t._id)}
       strategy={verticalListSortingStrategy}
     >
       <Box
@@ -28,8 +29,8 @@ function ListCards({ tasks }) {
           maxHeight: `calc( calc( 100vh - 48px ) - 40px - ${COL_HEADER} - ${COL_FOOTER})`,
         }}
       >
-        {tasks?.map((task) => (
-          <Card key={task._id} task={task} />
+        {cards?.map((card) => (
+          <Card key={card._id} card={card} />
         ))}
       </Box>
     </SortableContext>

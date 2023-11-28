@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 const page = () => {
   const router = useRouter();
   const handleClick = () => {
-    console.log("ok");
     router.push("/admin");
+    console.log("ok");
   };
   return (
     <div>

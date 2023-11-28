@@ -5,19 +5,21 @@ import BoardContent from "./BoardContent/BoardContent";
 import { mockData } from "~/apis/mock-data";
 import { config } from "~/assets/js/config";
 import { client } from "~/assets/js/client";
+import { mergeDataToBoard } from "~/utils/mergeData";
 
 const Board = () => {
   const { SERVER_API } = config;
   client.setUrl(SERVER_API);
-  const [board, setBoard] = useState({ columns: [], tasks: [] });
+  const [board, setBoard] = useState({});
   const getData = async () => {
     const { data } = await client.get("/tasks", localStorage.getItem("apiKey"));
     if (data.status_code === "SUCCESS") {
-      setBoard(data.data);
+      const { columns, tasks } = data.data;
+      setBoard(mergeDataToBoard(columns, tasks));
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getData();
   }, []);
 

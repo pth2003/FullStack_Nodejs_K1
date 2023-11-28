@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import Board from "~/pages/Boards/_id";
 import { config } from "~/assets/js/config";
 import { client } from "~/assets/js/client";
+import { mergeDataToBoard } from "~/utils/mergeData";
 export const ConfirmEmail = () => {
   const { SERVER_API } = config;
   client.setUrl(SERVER_API);
@@ -38,6 +39,17 @@ export const ConfirmEmail = () => {
       setLoading(false);
     }
   };
+
+  // const handleApiData = async () => {
+  //   const { data } = await client.get("/tasks", localStorage.getItem("apiKey"));
+
+  //   const { columns, tasks } = data.data;
+  //   const boardData = mergeDataToBoard(columns, tasks);
+  //   console.log(boardData);
+  // };
+  // useEffect(() => {
+  //   handleApiData();
+  // }, []);
 
   return (
     <>

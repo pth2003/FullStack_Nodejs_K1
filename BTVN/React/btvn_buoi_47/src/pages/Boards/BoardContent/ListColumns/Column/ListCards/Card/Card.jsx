@@ -5,8 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-function Card({ task }) {
-  if (!task) return;
+function Card({ card }) {
+  if (!card) return;
 
   const {
     attributes,
@@ -15,7 +15,7 @@ function Card({ task }) {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: task._id, data: { ...task } });
+  } = useSortable({ id: card._id, data: { ...card } });
 
   const dndKitCardStyles = {
     transform: CSS.Translate.toString(transform),
@@ -36,7 +36,7 @@ function Card({ task }) {
       }}
     >
       <CardContent sx={{ p: 1.5, "&:last-child": { p: 1.5 } }}>
-        <Typography> {task.content}</Typography>
+        <Typography> {card.title}</Typography>
       </CardContent>
     </MuiCard>
   );
