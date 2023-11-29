@@ -21,7 +21,7 @@ const testimonialsData = [
 ];
 const Testimonials = () => {
   return (
-    <section className="bg-soft_green xl:h-[880px]">
+    <section className="bg-soft_green dark:bg-grey xl:h-[880px]">
       <div className="container mx-auto">
         <Swiper
           modules={[Pagination]}

@@ -15,14 +15,14 @@ const SearchBox = () => {
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0 }}
-      className="w-full max-w-[488px] bg-white max-h-max flex flex-col border boder-outline rounded-[20px] p-10"
+      className="w-full max-w-[488px] bg-white dark:bg-grey max-h-max flex flex-col border border-outline rounded-[20px] p-10"
     >
       <div className="mb-[20px]">
         <Label htmlFor="destination">Where are you to go?</Label>
 
         <div className="relative flex items-center mb-[20px]">
           <Input id="destination" placeholder="enter here" />
-          <MapPin size={24} className="absolute right-6 text-black" />
+          <MapPin size={24} className="absolute right-6 text-black " />
         </div>
         {/* datetime picker */}
         <div className="flex flex-col xl:flex-row  gap-x-[30px] gap-y-5 xl:gap-y-0">

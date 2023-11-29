@@ -9,7 +9,7 @@ import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
-    <main className="max-w-[1440px] mx-auto bg-white overflow-hidden ">
+    <main className=" mx-auto bg-white  dark:bg-grey overflow-hidden ">
       <Header />
       <Hero />
       <Featured />

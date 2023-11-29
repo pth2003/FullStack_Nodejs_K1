@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white text-grey leading-8;
+    @apply bg-white text-grey dark:bg-grey dark:text-white leading-8;
   }
   h1,
   h2,
@@ -12,7 +12,7 @@
   h4,
   h5,
   h6 {
-    @apply text-black font-bold;
+    @apply text-black dark:text-white font-bold;
   }
   .h2 {
     @apply text-[32px];

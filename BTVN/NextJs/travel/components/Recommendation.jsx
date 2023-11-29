@@ -52,7 +52,7 @@ const Recommendation = () => {
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0 }}
-      className="pb-12 xl:pt-[157px] xl:pb-[112px] bg-soft_green-secondary relative"
+      className="pb-12 xl:pt-[157px] xl:pb-[112px] bg-soft_green-secondary dark:bg-grey relative"
     >
       <motion.div
         variants={fadeIn("up", 0.4)}
@@ -100,7 +100,7 @@ const Recommendation = () => {
                         alt=""
                         className="xl:rounded-tl-[20px] xl:rounded-bl-[20px]"
                       />
-                      <div className="bg-soft_green p-4 text-white text-center xl:text-left xl:max-w-[468px] xl:min-h-[212px] xl:absolute xl:bottom-0 xl:translate-x-1/2  xl:rounded-xl xl:px-10">
+                      <div className="bg-soft_green dark:bg-black p-4 text-white text-center xl:text-left xl:max-w-[468px] xl:min-h-[212px] xl:absolute xl:bottom-0 xl:translate-x-1/2  xl:rounded-xl xl:px-10">
                         <p className="mb-3 max-w-md mx-auto xl:max-w-none xl:mx-0 xl:mb-6">
                           {hotel.testimontial.message}
                         </p>

@@ -5,10 +5,10 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-soft_green-secondary relative pt-12 xl:pt-0">
+    <footer className="bg-soft_green-secondary dark:bg-grey relative pt-12 xl:pt-0">
       <div className="container mx-auto">
         <div>
-          <div className="flex flex-col xl:flex-row bg-white p-8 rounded-xl min-h-[394px]  xl:p-20 xl:-translate-y-36 xl:gap-x-12">
+          <div className="flex flex-col xl:flex-row bg-white dark:bg-black p-8 rounded-xl min-h-[394px]  xl:p-20 xl:-translate-y-36 xl:gap-x-12">
             <div className="xl:w-[470px] mb-6 xl:mb-0">
               <Link href="/">
                 <Image
