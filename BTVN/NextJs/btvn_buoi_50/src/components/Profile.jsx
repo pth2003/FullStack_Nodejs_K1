@@ -1,0 +1,162 @@
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import Link from "next/link";
+import { Button } from "./ui/button";
+
+import Image from "next/image";
+import avt from "../../public/spider.png";
+const Profile = () => {
+  return (
+    <main className="border border-slate-700 p-5">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+        <div className="xl:col-span-3 text-center">
+          <h1 className="font-bold text-[32px] ">Phan Trung Hiếu</h1>
+        </div>
+        <div className="xl:col-span-1 hidden xl:inline-flex flex-col items-center p-5">
+          <div className="w-[300px] ">
+            <Image src={avt} alt="Image" className="rounded-md object-cover " />
+            <h3 className="text-center my-2 ">Học viên F8</h3>
+          </div>
+          <Card className="w-full border">
+            <Card>
+              <CardHeader>
+                <CardTitle>Các kỹ năng của tôi</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <span className="font-semibold">Kỹ năng web</span>
+                <span>
+                  : Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Officiis iure enim est corporis optio aliquid cumque earum
+                  modi quis ipsum.
+                </span>
+              </CardContent>
+            </Card>
+            <hr />
+            <Card>
+              <CardHeader>
+                <CardTitle>Lịch sử</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <span className="font-semibold">Trường học </span>
+                <span>
+                  : Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Blanditiis mollitia aliquam earum voluptate doloribus nobis
+                  reprehenderit minima iste dolore quaerat ipsam omnis eos
+                  asperiores odit ullam architecto sit, sequi voluptatum!
+                </span>
+              </CardContent>
+            </Card>
+          </Card>
+        </div>
+        <div className="xl:col-span-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center">Thông tin liên hệ</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul>
+                <li>
+                  Phone: <Link href={"tel:0867713501"}>0867713501</Link>
+                </li>
+                <li>
+                  Zalo: <Link href={"tel:0867713501"}>0867713501</Link>
+                </li>
+                <li>
+                  Email:{" "}
+                  <Link href={"mailto:phantrunghieu@gmail.com"}>
+                    phantrunghieu@gmail.com
+                  </Link>
+                </li>
+                <li>
+                  Facebook:{" "}
+                  <Link href={"https://www.facebook.com/2720pth"}>
+                    https://www.facebook.com/2720pth
+                  </Link>
+                </li>
+                <li>
+                  Github :{" "}
+                  <Link href={"https://github.com/pth2003/FullStack_Nodejs_K1"}>
+                    https://github.com/pth2003/FullStack_Nodejs_K1
+                  </Link>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 rounded-xl shadow-gray-500">
+            <CardHeader>
+              <CardTitle> Các dự án cá nhân </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Card>
+                <CardHeader>
+                  <CardTitle>React Simple Movie</CardTitle>
+                  <CardDescription>Website giới thiệu phim</CardDescription>
+                </CardHeader>
+                <CardFooter className="flex">
+                  <Button>
+                    <Link href={"https://react-simple-movie-pi.vercel.app/"}>
+                      Demo
+                    </Link>
+                  </Button>
+                  <Button>Code</Button>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Trello</CardTitle>
+                  <CardDescription>Website quản lý công việc</CardDescription>
+                </CardHeader>
+                <CardFooter className="flex">
+                  <Button>
+                    <Link href={"https://btvn-buoi-47.vercel.app/"}>Demo</Link>
+                  </Button>
+                  <Button>Code</Button>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Soppi</CardTitle>
+                  <CardDescription>Website bán hàng</CardDescription>
+                </CardHeader>
+                <CardFooter className="flex">
+                  <Button>
+                    <Link href={"https://btvn-buoi-46.vercel.app/"}>Demo</Link>
+                  </Button>
+                  <Button>Code</Button>
+                </CardFooter>
+              </Card>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle> Sở thích cá nhân</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul>
+                <li className="list-disc list-inside">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  eaque...
+                </li>
+                <li className="list-disc list-inside">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Mollitia blanditiis magni eligendi praesentium perferendis?
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default Profile;
