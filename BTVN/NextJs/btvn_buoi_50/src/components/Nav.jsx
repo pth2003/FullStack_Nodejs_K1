@@ -2,6 +2,7 @@ import { FacebookIcon, GithubIcon, InstagramIcon } from "lucide-react";
 import React from "react";
 import { ModeToggle } from "./ModeToggle";
 import Link from "next/link";
+import LocaleSwitcher from "./locale-switcher";
 
 const Nav = () => {
   return (
@@ -19,6 +20,9 @@ const Nav = () => {
       </li>
       <li>
         <ModeToggle />
+      </li>
+      <li>
+        <LocaleSwitcher />
       </li>
     </ul>
   );

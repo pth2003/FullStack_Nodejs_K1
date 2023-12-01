@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "page": {
+    "home": {
+      "userName": "Phan Trung Hieu",
+      "userDesc": "Student F8",
+      "skillTitle": "My skills",
+      "orther": "Histories",
+      "skillDesc1": "Web developer",
+      "socialTitle": "Social contact",
+      "projectTitle": "Selft project",
+      "projectDesc1": "Movie introduction website",
+      "projectDesc2": "Job management website",
+      "projectDesc3": "E-commerce website",
+      "hobbiTitle": "My hobbies"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "This is the about page"
+    }
+  }
+}

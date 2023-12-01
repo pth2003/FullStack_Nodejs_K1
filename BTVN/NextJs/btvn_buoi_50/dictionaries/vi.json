@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About"
+  },
+  "page": {
+    "home": {
+      "userName": "Phan Trung Hiếu",
+      "userDesc": "Học viên F8",
+      "skillTitle": "Các kỹ năng của tôi",
+      "orther": "Lịch sử",
+      "skillDesc1": "Kỹ năng web",
+      "socialTitle": "Thông tin liên hệ",
+      "projectTitle": "Các dự án cá nhân",
+      "projectDesc1": "Website giới thiệu phim",
+      "projectDesc2": "Website quản lý công việc",
+      "projectDesc3": "Website bán hàng",
+      "hobbiTitle": "Sở thích cá nhân"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "This is the about page"
+    }
+  }
+}
