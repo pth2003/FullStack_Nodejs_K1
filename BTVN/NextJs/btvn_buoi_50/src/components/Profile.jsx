@@ -21,7 +21,12 @@ const Profile = ({ page: { home } }) => {
         </div>
         <div className="xl:col-span-1 hidden xl:inline-flex flex-col items-center p-5">
           <div className="w-[300px] ">
-            <Image src={avt} alt="Image" className="rounded-md object-cover " />
+            <Image
+              src={avt}
+              priority="100"
+              alt="Image"
+              className="rounded-md object-cover "
+            />
             <h3 className="text-center my-2 ">{home.userDesc}</h3>
           </div>
           <Card className="w-full border">

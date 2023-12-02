@@ -1,5 +1,4 @@
-require("server-only");
-// const { Locale } = require("../../i18n-config");
+import "server-only";
 
 const dictionaries = {
   en: () =>

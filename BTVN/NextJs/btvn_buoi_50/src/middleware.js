@@ -1,7 +1,7 @@
-const { NextResponse } = require("next/server");
-const Negotiator = require("negotiator");
-const { match: matchLocale } = require("@formatjs/intl-localematcher");
-const { i18n } = require("@/i18n.config");
+import { NextResponse } from "next/server";
+import { match as matchLocale } from "@formatjs/intl-localematcher";
+import Negotiator from "negotiator";
+import { i18n } from "../i18.config";
 
 function getLocale(request) {
   const negotiatorHeaders = {};
@@ -11,10 +11,11 @@ function getLocale(request) {
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
   const locale = matchLocale(languages, locales, i18n.defaultLocale);
+
   return locale;
 }
 
-function middleware(request) {
+export function middleware(request) {
   const pathname = request.nextUrl.pathname;
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -22,6 +23,16 @@ function middleware(request) {
 
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
+
+    if (locale === i18n.defaultLocale) {
+      return NextResponse.rewrite(
+        new URL(
+          `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
+          request.url
+        )
+      );
+    }
+
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
@@ -31,10 +42,7 @@ function middleware(request) {
   }
 }
 
-module.exports = {
-  middleware,
-  config: {
-    // Matcher ignoring `/_next/` and `/api/`
-    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-  },
+export const config = {
+  // Matcher ignoring `/_next/` and `/api/`
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

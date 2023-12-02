@@ -4,6 +4,8 @@ import { ModeToggle } from "./ModeToggle";
 import Link from "next/link";
 import LocaleSwitcher from "./locale-switcher";
 
+import SignInButton from "./SignInButton";
+
 const Nav = () => {
   return (
     <ul className="flex gap-3 items-center">
@@ -23,6 +25,9 @@ const Nav = () => {
       </li>
       <li>
         <LocaleSwitcher />
+      </li>
+      <li>
+        <SignInButton />
       </li>
     </ul>
   );
