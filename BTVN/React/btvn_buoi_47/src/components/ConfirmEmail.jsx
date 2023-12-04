@@ -35,8 +35,8 @@ export const ConfirmEmail = () => {
       setLoading(false);
       setConfirm(true);
     } else {
-      toast.error(data.message);
       setLoading(false);
+      toast.error(data.message);
     }
   };
 

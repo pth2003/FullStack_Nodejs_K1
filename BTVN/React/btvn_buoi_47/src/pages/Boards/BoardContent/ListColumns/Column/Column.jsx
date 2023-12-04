@@ -2,18 +2,26 @@ import { Box, Button, Tooltip, Typography } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
+import TextField from "@mui/material/TextField";
+import CloseIcon from "@mui/icons-material/Close";
 import ListCards from "./ListCards/ListCards";
 import { mapOrder } from "~/utils/sorts";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { useState } from "react";
+import { splitDataToPost } from "~/utils/splitDataToPost";
+import { client } from "~/assets/js/client";
+import { config } from "~/assets/js/config";
 const COL_HEADER = "50px";
 const COL_FOOTER = "56px";
-function Column({ column }) {
+function Column({ column, columns }) {
+  const { SERVER_API } = config;
+  client.setUrl(SERVER_API);
+  const apiKey = localStorage.getItem("apiKey");
   // const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, "_id");
   // if (!tasks) return;
 
   // const tasksByCol = tasks.filter((task) => task.column === column.column);
-
   const {
     attributes,
     listeners,
@@ -31,7 +39,33 @@ function Column({ column }) {
   };
 
   const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, "_id");
+  const [openNewCardForm, setOpenNewCardForm] = useState(false);
+  const toggleOpenNewCardForm = () => setOpenNewCardForm(!openNewCardForm);
+  const [newCardTitle, setNewCardTitle] = useState("");
+  const addNewCard = async () => {
+    if (!newCardTitle) {
+      return;
+    }
+    // goi api o day
 
+    const newCard = {
+      content: newCardTitle,
+      column: column.column,
+      columnName: column.title,
+    };
+
+    const dataToPost = splitDataToPost(columns);
+    dataToPost.push(newCard);
+
+    const { data } = await client.post(`/tasks`, dataToPost, apiKey);
+    if (data.status_code === "SUCCESS") {
+      location.reload(500);
+      // console.log("thanh cong");
+    }
+    // dong trang thai them col va clear input
+    toggleOpenNewCardForm();
+    setNewCardTitle("");
+  };
   return (
     <div ref={setNodeRef} style={dndKitColumnStyles} {...attributes}>
       <Box
@@ -60,21 +94,76 @@ function Column({ column }) {
           <DeleteOutlineIcon />
         </Box>
         {/* col list card */}
-        <ListCards cards={orderedCards} />
+        <ListCards cards={orderedCards} columns={columns} />
         {/* col footer */}
         <Box
           sx={{
             height: COL_FOOTER,
             p: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
           }}
         >
-          <Button startIcon={<AddCardIcon />}>Add new card</Button>
-          <Tooltip title="Drag to move">
-            <DragHandleIcon sx={{ cursor: "pointer" }} />
-          </Tooltip>
+          {!openNewCardForm ? (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                height: "100%",
+              }}
+            >
+              <Button
+                startIcon={<AddCardIcon />}
+                onClick={toggleOpenNewCardForm}
+              >
+                Add new card
+              </Button>
+              <Tooltip title="Drag to move">
+                <DragHandleIcon sx={{ cursor: "pointer" }} />
+              </Tooltip>
+            </Box>
+          ) : (
+            <Box
+              sx={{
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <TextField
+                label="Enter card title..."
+                variant="outlined"
+                autoFocus
+                type="text"
+                size="small"
+                value={newCardTitle}
+                onChange={(e) => {
+                  setNewCardTitle(e.target.value);
+                }}
+              ></TextField>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Button
+                  variant="contained"
+                  color="success"
+                  size="small"
+                  sx={{
+                    boxShadow: "none",
+                    border: "0.5px solid",
+                    borderColor: "#ccc",
+                    // "&:hover": { bgcolor: "black" },
+                  }}
+                  onClick={addNewCard}
+                >
+                  Add
+                </Button>
+                <CloseIcon
+                  fontSize="small"
+                  sx={{ color: "white", cursor: "pointer" }}
+                  onClick={toggleOpenNewCardForm}
+                />
+              </Box>
+            </Box>
+          )}
         </Box>
       </Box>
     </div>

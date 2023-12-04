@@ -6,7 +6,7 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-function ListCards({ cards }) {
+function ListCards({ cards, columns }) {
   // if (!tasks) {
   //   return null; // or return an appropriate component or message
   // }
@@ -30,7 +30,7 @@ function ListCards({ cards }) {
         }}
       >
         {cards?.map((card) => (
-          <Card key={card._id} card={card} />
+          <Card key={card._id} card={card} columns={columns} />
         ))}
       </Box>
     </SortableContext>

@@ -11,16 +11,20 @@ import {
   defaultDropAnimationSideEffects,
   closestCorners,
 } from "@dnd-kit/core";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
 import Column from "./ListColumns/Column/Column";
 import Card from "./ListColumns/Column/ListCards/Card/Card";
-import { cloneDeep } from "lodash";
+import { cloneDeep, split } from "lodash";
+import { splitDataToPost } from "~/utils/splitDataToPost";
+import { client } from "~/assets/js/client";
+import { config } from "~/assets/js/config";
+import { mergeDataToBoard } from "~/utils/mergeData";
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: "ACTIVE_DRAG_ITEM_TYPE_COLUMN",
   CARD: "ACTIVE_DRAG_ITEM_TYPE_CARD",
 };
-function BoardContent({ board }) {
+function BoardContent() {
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: { distance: 10 },
   });
@@ -30,12 +34,31 @@ function BoardContent({ board }) {
   const [activeDragItemType, setActiveDragItemType] = useState(null);
   const [activeDragItemData, setActiveDragItemData] = useState(null);
   const [oldColumn, setOldClumn] = useState(null);
+  const [dataPost, setDataPost] = useState([]);
+
+  const { SERVER_API } = config;
+  client.setUrl(SERVER_API);
+  const apiKey = localStorage.getItem("apiKey");
+  const [board, setBoard] = useState({});
+  const getData = async () => {
+    const { data } = await client.get("/tasks", apiKey);
+    if (data.status_code === "SUCCESS") {
+      const { columns, tasks } = data.data;
+      setBoard(mergeDataToBoard(columns, tasks));
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   useEffect(() => {
     if (!board) {
       return;
     }
     setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, "_id"));
   }, [board]);
+
   // tim mot col theo cardid
   const findColumnByCardId = (cardId) => {
     return orderedColumns.find((column) =>
@@ -193,6 +216,7 @@ function BoardContent({ board }) {
               (card) => card._id === activeDragItemId
             ).column = overColumn.column;
           }
+          postColumns(splitDataToPost(nextColumns));
           return nextColumns;
         });
       } else {
@@ -220,6 +244,7 @@ function BoardContent({ board }) {
           targetColumn.cardOrderIds = dndOrderCards.map((i) => i._id);
 
           // tra ve vi tri state chuan vi tri
+          postColumns(splitDataToPost(nextColumns));
           return nextColumns;
         });
       }
@@ -233,11 +258,14 @@ function BoardContent({ board }) {
         const newIndex = orderedColumns.findIndex((c) => c._id === over.id);
 
         const dndOrderColumns = arrayMove(orderedColumns, oldIndex, newIndex);
-        console.log(dndOrderColumns);
+
+        postColumns(splitDataToPost(dndOrderColumns));
         // const dndOrderColumnsIds = dndOrderColumns.map((c) => c._id);
         setOrderedColumns(dndOrderColumns);
       }
     }
+    // const data = splitDataToPost(orderedColumns);
+    // postColumns(data);
     // clear du lieu sau khi keo tha
     setActiveDragItemId(null);
     setActiveDragItemType(null);
@@ -253,6 +281,18 @@ function BoardContent({ board }) {
       },
     }),
   };
+
+  const postColumns = async (columns) => {
+    const { data } = await client.post(`/tasks`, columns, apiKey);
+    if (data.status_code === "SUCCESS") {
+      const { columns, tasks } = data.data;
+      // setDataPost(data.data);
+      setBoard(mergeDataToBoard(columns, tasks));
+      // setDataPost(mergeDataToBoard(data.data.columns, data.data.tasks));
+    }
+  };
+  // const data = splitDataToPost(orderedColumns);
+  // postColumns(data);
   return (
     <DndContext
       collisionDetection={closestCorners}
