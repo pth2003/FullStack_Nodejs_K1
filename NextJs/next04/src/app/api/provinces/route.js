@@ -1,4 +1,12 @@
 import province from "@/data/tinh_tp.json";
 export function GET() {
-  return Response.json(Object.values(province));
+  const data = Object.values(province);
+  // const code = data.map((item) => {
+  //   return item.code;
+  // });
+  data.sort((a, b) => a.code - b.code);
+  return Response.json({
+    status: "success",
+    data,
+  });
 }

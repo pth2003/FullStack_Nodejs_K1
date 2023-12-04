@@ -4,9 +4,11 @@ export function GET(request) {
   if (!provinceId) {
     return Response.json({ error: "Error" });
   }
-  let districtArr = Object.values(district);
-  districtArr = districtArr.filter((item) => {
-    return provinceId === item.parent_code;
-  });
-  return Response.json(districtArr);
+  let data = Object.values(district);
+  data = data
+    .filter((item) => {
+      return provinceId === item.parent_code;
+    })
+    .sort((a, b) => a.code - b.code);
+  return Response.json(data);
 }

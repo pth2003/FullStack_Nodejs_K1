@@ -2,7 +2,7 @@
 import useSWR from "swr";
 import { useEffect } from "react";
 export const fetcher = (...args) => fetch(...args).then((res) => res.json());
-export const postsApi = `${process.env.NEXT_PUBLIC_SERVER_API}/posts`;
+export const postsApi = `${process.env.SERVER_API}/posts`;
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useNetwork from "./useNetwork";
