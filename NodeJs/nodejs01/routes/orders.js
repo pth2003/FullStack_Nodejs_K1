@@ -1,15 +1,9 @@
 import express from "express";
-
+import userController from "../controllers/user.controller.js";
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("<h1>DANH SACH DON HANG</h1>");
-});
-router.get("/completed", (req, res) => {
-  res.send("<h1>DANH SACH DON HANG HOAN THANH</h1>");
-});
-router.get("/cancel", (req, res) => {
-  res.send("<h1>DANH SACH DON HANG HUY</h1>");
-});
+router.get("/", userController.orderList);
+router.get("/completed", userController.orderCompleted);
+router.get("/cancel", userController.orderCancel);
 
 export default router;
