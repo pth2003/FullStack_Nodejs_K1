@@ -4,4 +4,7 @@ const router = express.Router();
 
 router.get("/dang-nhap", authController.login);
 
+// https post
+router.post("/dang-nhap", authController.handleLogin);
+
 export default router;
