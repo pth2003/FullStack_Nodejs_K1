@@ -1,0 +1,43 @@
+<h1>Thêm người dùng</h1>
+<form action="" method="post">
+  <div class="mb-3">
+    <label for="name">Tên</label>
+    <input type="text" class="form-control" name="name" placeholder="Ten..." />
+  </div>
+  <div class="mb-3">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control"
+      name="email"
+      placeholder="Email..."
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password">Mật Khẩu</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      placeholder="password..."
+    />
+  </div>
+  <div class="mb-3">
+    <label for="status">Trạng Thái</label>
+    <select name="status">
+      <option value="0">Chưa kích hoạt</option>
+      <option value="1">Kích hoạt</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="status">Khóa học</label>
+    <% courses.forEach(course => { %>
+    <label for="" class="mb-3 d-block">
+      <input type="checkbox" name="courses" value="<%= course.id %>" /> <%=
+      course.name %>
+    </label>
+    <% }) %>
+  </div>
+  <button class="btn btn-primary">Lưu</button>
+  <a href="#" class="btn btn-danger">Hủy </a>
+</form>

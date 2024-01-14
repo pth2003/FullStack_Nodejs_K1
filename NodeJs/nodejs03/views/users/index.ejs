@@ -1,0 +1,90 @@
+<h1>Danh sách người dùng</h1>
+
+<div class="mb-3">
+  <a href="/users/add" class="btn btn-primary">Thêm người dùng</a>
+</div>
+<form action="">
+  <div class="row">
+    <div class="col-3">
+      <select name="status" class="form-control">
+        <option value="all">Tất cả</option>
+        <option value="active">Kích hoạt</option>
+        <option value="inactive">Không kích hoạt</option>
+      </select>
+    </div>
+    <div class="col-3">
+      <select name="group" class="form-control">
+        <option value="">Tất cả nhóm</option>
+        <% groups.forEach(group => { %>
+         <option value="<%= group.id %>" <%= +req.query.group === +group.id ? "selected" : "" %>> <%= group.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="col-4">
+      <input
+        type="search"
+        class="form-control"
+        placeholder="Từ khóa cần tìm..."
+        name="keyword"
+      />
+    </div>
+    <div class="col-2 d-grid">
+      <button class="btn btn-primary">Tìm kiếm</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-bordered mt-3">
+  <tr>
+    <th>STT</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Điện Thoại</th>
+    <th>Nhóm</th>
+    <th>Status</th>
+    <th>Time</th>
+    <th width="5%">Sua</th>
+    <th>Xoa</th>
+  </tr>
+
+  <% users.forEach(({id,name,email,status,created_at:createdAt,phones,group} , index) => { %>
+  <tr>
+    <td><%= index+1 %></td>
+    <td><%= name %></td>
+    <td><%= email %></td>
+    <td><%= phones?.phone %></td>
+    <td><%= group?.name %></td>
+    <td><%= status ? "Kích hoạt" : "Chưa kích hoạt" %></td>
+    <td><%= moment(createdAt).format('DD/MM/YYYY') %></td>
+    <td>
+      <a href="/users/edit/<%= id %>" class="btn btn-warning">Sửa</a>
+    </td>
+    <td>
+      <form
+        action="/users/delete/<%= id %>"
+        method="post"
+        onsubmit="return confirm('Bạn có chắc chắn xoá?')"
+      >
+        <button class="btn btn-danger">Xóa</button>
+      </form>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+
+<ul class="pagination">
+  <% if (page > 1) { %>
+    <li class="page-item"><a class="page-link" href="?page=<%= +page - 1  %>">Previous</a></li>
+  <% } %>
+  
+  <% for (let index = 1; index <= totalPage; index++) { %>
+    <li class="page-item <%= page == index ? "active" : "" %>" >
+      <a class="page-link" href="?page=<%=index%>"> <%= index %> </a>
+    </li>
+    
+   <% } %>
+   <% if (page < totalPage) { %>
+    <li class="page-item"><a class="page-link" href="?page=<%= +page + 1  %>">Next</a></li>
+  <% } %>
+ 
+</ul>
