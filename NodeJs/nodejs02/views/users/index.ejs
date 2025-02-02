@@ -1,14 +1,35 @@
-<h1>Danh sach nguoi dung</h1>
+<h1>Danh sách người dùng</h1>
+
+<div class="mb-3"> 
+  <a href="/users/add" class="btn btn-primary">Thêm người dùng</a>
+</div>
 <form action="">
-  <select name="status">
-    <option value="all">tat ca</option>
-    <option value="active">kich hoat</option>
-    <option value="inactive">khong kich hoat</option>
-  </select>
-  <input type="search" placeholder="tim kiem..." name="keyword" />
-  <button>tim kiem</button>
+  <div class="row">
+    <div class="col-3">
+      <select name="status" class="form-control">
+        <option value="all">Tất cả</option>
+        <option value="active" <%= status === 'active' ? 'selected' : '' %>>Kích hoạt</option>
+        <option value="inactive" <%= status === 'inactive' ? 'selected' : '' %>>Không kích hoạt</option>
+      </select>
+    </div>
+
+    <div class="col-7">
+      <input type="search" class="form-control" placeholder="Từ khóa cần tìm..." name="keyword"  value="<%=  keyword %>" />
+      
+    </div>
+    <div class="col-2 d-grid">
+      <button class="btn btn-primary">Tìm kiếm</button>
+    </div>
+  </div>
+  
+  
 </form>
-<table border="1" cellspacing="0">
+<% if (msg.length) { %>
+    <div class="alert alert-success mt-3"><%= msg %> </div>
+<% } %>
+  
+ 
+<table class="table table-bordered mt-3">
   <tr>
     <th>STT</th>
     <th>Name</th>
@@ -26,8 +47,12 @@
     <td><%= email %></td>
     <td><%= status %></td>
     <td><%= moment(createdAt).format('DD/MM/YYYY') %></td>
-    <td><a href="">Sua</a></td>
-    <td><a href="">Xoa</a></td>
+    <td><a href="/users/edit/<%= id %>" class="btn btn-warning">Sửa</a></td>
+    <td>
+      <form action="/users/delete/<%= id %>" method="post" onsubmit="return confirm('Bạn có chắc chắn?')">
+        <button class="btn btn-danger">Xóa</button>
+      </form>
+      </td>
   </tr>
   <% }) %>
 </table>

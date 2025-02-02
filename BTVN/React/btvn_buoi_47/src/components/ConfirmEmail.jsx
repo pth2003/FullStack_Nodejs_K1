@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/style.css";
-import { useDispatch, useSelector } from "react-redux";
-import { userLogin } from "~/redux/actions/authActions";
+// import { useDispatch, useSelector } from "react-redux";/
+// import { userLogin } from "~/redux/actions/authActions";
 import Loading from "./Loading";
 import Board from "~/pages/Boards/_id";
 import { config } from "~/assets/js/config";
 import { client } from "~/assets/js/client";
-import { mergeDataToBoard } from "~/utils/mergeData";
+// import { mergeDataToBoard } from "~/utils/mergeData";
 export const ConfirmEmail = () => {
   const { SERVER_API } = config;
   client.setUrl(SERVER_API);
